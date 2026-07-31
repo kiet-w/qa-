@@ -1,68 +1,42 @@
 # AI-Powered QA Trainee Roadmap
 
-Roadmap nay danh cho nguoi moi bat dau QA tu con so 0, uu tien Manual Testing truoc, sau do moi di sang DevTools, API Testing va Automation.
+Lộ trình này dành cho người mới bắt đầu từ con số 0. Bạn học Manual QA trước, hiểu web/API sau, rồi mới đi đến automation. Mỗi phần gồm mục tiêu, thứ tự thực hiện, checklist, bài tập và sơ đồ SVG để nhìn rõ mối liên hệ giữa các khái niệm.
 
-Muc tieu cua giai doan dau khong phai la hoc that nhieu cong cu, ma la nam chac cach suy nghi cua QA: hieu requirement, nghi ra rui ro, viet test case, test thuc te, bao loi ro rang va biet dung AI de tang toc ma van tu review ket qua.
+> Nguyên tắc cốt lõi: AI giúp QA làm nhanh hơn, nhưng requirement, hành vi ứng dụng thật và sự review của con người mới quyết định kết quả đúng.
 
-## Thu tu hoc tong quan
+![Bản đồ lộ trình](01-start-here/diagrams/learning-map.svg)
 
-1. Computer and Internet Basics
-2. QA Fundamentals
-3. Manual Testing Practice
-4. Bug Report and Test Case Writing
-5. Chrome DevTools Basics
-6. Project Management Tools
-7. HTTP and API Testing with Postman
-8. HTML, CSS, JavaScript Basics
-9. Automation Testing
+## Thứ tự học
 
-## Can chuan bi ngay
+| Chặng | Bạn học gì | Kết quả cần đạt |
+| --- | --- | --- |
+| [01. Bắt đầu](01-start-here/README.md) | Chuẩn bị máy, công cụ, cách học | Có môi trường và lịch học 2 tuần đầu |
+| [02. QA foundations](02-qa-foundations/README.md) | QA mindset, approaches, oracle | Biết đặt câu hỏi và xác định đúng/sai |
+| [03. Test design](03-test-design-and-techniques/README.md) | Risk, kỹ thuật và loại test | Biết chọn thứ cần test trước |
+| [04. Manual workflow](04-manual-testing-workflow/README.md) | Plan, test case, execution, bug report | Có thể test một feature từ đầu đến cuối |
+| [05. Delivery process](05-sdlc-stlc-agile/README.md) | SDLC, STLC, Agile/Scrum | Hiểu vai trò QA trong team |
+| [06. Công cụ](06-tools-and-workflow/README.md) | DevTools, Jira/Trello, Sheets | Biết thu thập bằng chứng và quản lý bug |
+| [07. Web & API](07-web-and-api-basics/README.md) | HTML/CSS/JS, HTTP, Postman | Đọc được request/response cơ bản |
+| [08. Automation](08-automation-foundations/README.md) | Automation mindset, Playwright/Cypress | Biết hướng học automation đúng thời điểm |
+| [09. AI-Powered QA](09-ai-powered-qa/README.md) | Prompt, review AI output, AI tools | Dùng AI an toàn trong quy trình test |
+| [10. Dự án thực hành](10-practice-projects/README.md) | SauceDemo, portfolio | Có sản phẩm để nộp/đi phỏng vấn |
 
-- May tinh ca nhan
-- Google Chrome
-- Excel hoac Google Sheets
-- VS Code
-- Postman
-- Tai khoan GitHub
-- Jira hoac Trello de lam quen voi bug/task workflow
+## Cách dùng repo
 
-## 2 tuan dau tien
+1. Học lần lượt theo số thứ tự thư mục; không cần học hết mọi thứ trong một ngày.
+2. Đọc phần **Mục tiêu** và **Các bước thực hiện** trước.
+3. Hoàn thành checklist, sau đó làm bài tập của chương.
+4. Lưu test case, bug report và ảnh/video bằng chứng trong thư mục portfolio của bạn.
+5. Dùng AI để tạo bản nháp, nhưng luôn đối chiếu với requirement và ứng dụng thật.
 
-### Tuan 1
+Chạy `./roadmap.sh` để xem checklist ngắn ngay trong terminal.
 
-- Hoc QA la gi, Testing la gi, QA khac Testing nhu the nao
-- Hoc Bug, Test Case, Test Scenario, Test Plan
-- Hoc Black Box Testing, Smoke, Sanity, Regression
-- Hoc Verification vs Validation
-- Hoc SDLC, STLC, Agile/Scrum co ban
-- Viet test case thu cong bang Excel hoac Google Sheets
-- Viet bug report day du thanh phan
-- Luyen exploratory testing tren:
-  - https://www.saucedemo.com
-  - https://demoqa.com
-  - https://the-internet.herokuapp.com
+## Lịch 2 tuần đầu
 
-### Tuan 2
+- **Tuần 1:** chặng 01 → 05; viết test case và bug report; exploratory test trên SauceDemo, DemoQA hoặc The Internet.
+- **Tuần 2:** chặng 06 → 07; dùng DevTools, tạo ticket Jira/Trello, gửi request Postman đơn giản.
+- **Sau tuần 2:** lặp lại dự án ở chặng 10. Chỉ học automation khi bạn đã tự viết và chạy được test manual.
 
-- Lam quen Chrome DevTools: Elements, Console, Network
-- Tao board Jira hoac Trello
-- Tao ticket, tao bug, gan priority/severity
-- Hoc HTTP co ban: GET, POST, PUT, PATCH, DELETE
-- Gui request don gian bang Postman
+## Tài liệu cũ
 
-## Tai lieu trong repo
-
-- `roadmap.sh`: roadmap dang terminal/script, de xem nhanh thu tu hoc.
-- `fundamentals.md`: phan nen tang can deep dive truoc khi hoc code va automation.
-
-## Nguyen tac dung AI trong QA
-
-AI la cong cu tang toc, khong phai nguon dung tuyet doi.
-
-- Dung AI de generate ban nhap test case.
-- Dung AI de goi y edge case.
-- Dung AI de format bug report ro rang hon.
-- Dung AI de giai thich log, error, network response.
-- Luon review lai output cua AI dua tren requirement, spec va hanh vi app that.
-
-Trong phong van AI-Powered QA Trainee, cau tra loi quan trong nhat thuong la: ban dung AI o buoc nao trong quy trinh test, va ban kiem chung ket qua AI dua ra nhu the nao.
+Nội dung từng nằm trong `fundamentals.md` đã được chia nhỏ vào các thư mục trên. File cũ vẫn được giữ như chỉ dẫn chuyển tiếp.
