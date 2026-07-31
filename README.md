@@ -20,6 +20,11 @@ Lộ trình này dành cho người mới bắt đầu từ con số 0. Bạn h�
 | [08. Automation](08-automation-foundations/README.md) | Automation mindset, Playwright/Cypress | Biết hướng học automation đúng thời điểm |
 | [09. AI-Powered QA](09-ai-powered-qa/README.md) | Prompt, review AI output, AI tools | Dùng AI an toàn trong quy trình test |
 | [10. Dự án thực hành](10-practice-projects/README.md) | SauceDemo, portfolio | Có sản phẩm để nộp/đi phỏng vấn |
+| [11. Advanced Manual QA](11-advanced-manual-qa/README.md) | Test design sâu hơn, thực chiến release | Nâng manual QA từ trainee lên junior |
+| [12. API & Database Testing](12-api-and-database-testing/README.md) | Postman nâng cao, SQL, API contracts | Tự kiểm tra UI–API–data flow |
+| [13. Mobile, Performance & Security](13-specialized-testing/README.md) | Mobile, accessibility, tải và security cơ bản | Biết các nhánh chuyên môn để chọn sâu hơn |
+| [14. Automation Engineering](14-automation-engineering/README.md) | Framework, CI/CD, reporting, test architecture | Xây automation có thể bảo trì |
+| [15. Career & Real Projects](15-career-and-real-projects/README.md) | Portfolio, phỏng vấn, dự án thật | Sẵn sàng ứng tuyển và tiếp tục phát triển |
 
 ## Cách dùng repo
 
@@ -36,6 +41,7 @@ Chạy `./roadmap.sh` để xem checklist ngắn ngay trong terminal.
 - **Tuần 1:** chặng 01 → 05; viết test case và bug report; exploratory test trên SauceDemo, DemoQA hoặc The Internet.
 - **Tuần 2:** chặng 06 → 07; dùng DevTools, tạo ticket Jira/Trello, gửi request Postman đơn giản.
 - **Sau tuần 2:** lặp lại dự án ở chặng 10. Chỉ học automation khi bạn đã tự viết và chạy được test manual.
+- **Sau khi vững nền tảng:** mở lần lượt các chặng 11 → 15. Các folder này là backlog phát triển dài hạn, không cần học ngay.
 
 ## Tài liệu cũ
 
