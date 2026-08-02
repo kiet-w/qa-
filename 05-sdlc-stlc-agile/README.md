@@ -5,12 +5,16 @@ Hiểu rõ vòng đời phát triển phần mềm (SDLC), vòng đời kiểm t
 
 ---
 
-## 📊 Agile Sprint Flow & Vai trò QA
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-![Agile Sprint Flow](diagrams/agile-sprint.svg)
+### SDLC vs STLC Life Cycle
+![SDLC vs STLC Life Cycle](diagrams/sdlc-stlc.svg)
 
+### Agile Sprint Flow & Vai trò của QA
+![Agile Sprint Flow & Vai trò của QA](diagrams/agile-sprint.svg)
 
----
+### Scrum Feedback Loop & Definition of Done
+![Scrum Feedback Loop & Definition of Done](diagrams/scrum-feedback-loop.svg)
 
 ## 1. SDLC Models & Vị trí của QA
 

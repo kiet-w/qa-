@@ -5,6 +5,13 @@
 
 ---
 
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Luồng E2E Test Case: Add to Cart & Checkout Flow
+![Luồng E2E Test Case: Add to Cart & Checkout Flow](diagrams/add-to-cart-test-flow.svg)
+
+
+
 ## 📌 Project 1: Next.js App Test Suite (End-to-End)
 
 Xây dựng bộ Test Suite cho chính ứng dụng Web của bạn:

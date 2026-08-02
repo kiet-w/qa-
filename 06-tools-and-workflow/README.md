@@ -5,6 +5,16 @@ Thành thạo công cụ Chrome DevTools cho mục đích QA, quản lý bug tr�
 
 ---
 
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Quy trình điều tra lỗi bằng Chrome DevTools
+![Quy trình điều tra lỗi bằng Chrome DevTools](diagrams/devtools-investigation.svg)
+
+### Quy trình quản lý Bug Ticket trên Jira
+![Quy trình quản lý Bug Ticket trên Jira](diagrams/jira-workflow.svg)
+
+
+
 ## 1. Chrome DevTools qua góc nhìn QA
 
 - **Console Tab:** Phát hiện các lỗi JavaScript ẩn (Uncaught TypeError, Red Console Errors).

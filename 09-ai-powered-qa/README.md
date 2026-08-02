@@ -5,12 +5,13 @@ Làm chủ việc ứng dụng AI/LLM trong quy trình QA: Prompt Engineering (F
 
 ---
 
-## 📊 3-Agent Agentic Testing Architecture
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-![Agentic Architecture](diagrams/agentic-architecture.svg)
+### Kiến trúc 3-Agent Agentic Testing (Playwright MCP)
+![Kiến trúc 3-Agent Agentic Testing (Playwright MCP)](diagrams/agentic-architecture.svg)
 
-
----
+### Vòng lặp Review & Kiểm chứng AI Output
+![Vòng lặp Review & Kiểm chứng AI Output](diagrams/ai-qa-review-loop.svg)
 
 ## 1. Prompt Engineering Framework cho QA (RCFCO)
 

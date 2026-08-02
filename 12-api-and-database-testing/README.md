@@ -5,6 +5,13 @@ Sử dụng Playwright Request API để test API tự động và viết các c
 
 ---
 
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Luồng kiểm thử Data Integrity từ UI ➔ API ➔ Database
+![Luồng kiểm thử Data Integrity từ UI ➔ API ➔ Database](diagrams/api-db-testing-flow.svg)
+
+
+
 ## 1. Playwright API Testing (`request`)
 
 ```typescript

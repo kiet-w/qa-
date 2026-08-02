@@ -5,6 +5,13 @@ Xây dựng Portfolio ấn tượng chứng minh cả tư duy QA lẫn năng l�
 
 ---
 
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Lộ trình phát triển sự nghiệp QA (Career Progression Roadmap)
+![Lộ trình phát triển sự nghiệp QA (Career Progression Roadmap)](diagrams/qa-career-roadmap.svg)
+
+
+
 ## 📝 20+ Câu Hỏi Phỏng Vấn Mẫu & Định Hướng Trả Lời
 
 1. **Phân biệt QA vs QC vs Testing?**

@@ -5,6 +5,19 @@ Thành thạo kỹ năng viết Test Plan, viết Test Case chuẩn atomic, vi�
 
 ---
 
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Quy trình Manual Test Cycle
+![Quy trình Manual Test Cycle](diagrams/manual-test-cycle.svg)
+
+### Vòng đời Defect trong Quy trình Test
+![Vòng đời Defect trong Quy trình Test](diagrams/defect-lifecycle.svg)
+
+### Requirement Traceability Matrix (RTM)
+![Requirement Traceability Matrix (RTM)](diagrams/rtm-matrix.svg)
+
+
+
 ## 1. Cấu trúc Test Case chuẩn
 
 | Field | Description | Example |

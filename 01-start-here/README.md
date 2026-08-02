@@ -41,3 +41,9 @@ Sau phần này, bạn có máy và công cụ sẵn sàng, biết cách lưu b�
 - [ ] Có GitHub và Jira/Trello hoặc Trello.
 - [ ] Biết chụp màn hình, quay video, dán link và tải attachment.
 - [ ] Đọc được sơ đồ lộ trình và biết đang học chặng nào.
+
+
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Bản đồ Lộ trình Học tập (Learning Path)
+![Bản đồ Lộ trình Học tập (Learning Path)](diagrams/learning-map.svg)

@@ -5,12 +5,13 @@ Làm chủ mô hình Page Object Model (POM), Quản lý Fixtures, Xử lý Flak
 
 ---
 
-## 📊 Page Object Model (POM) Architecture
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-![POM Architecture](diagrams/pom-architecture.svg)
+### Kiến trúc Page Object Model (POM) Pattern
+![Kiến trúc Page Object Model (POM) Pattern](diagrams/pom-architecture.svg)
 
-
----
+### Workflow Tự động hóa CI/CD với GitHub Actions
+![Workflow Tự động hóa CI/CD với GitHub Actions](diagrams/cicd-pipeline.svg)
 
 ## 1. Page Object Model (POM) Pattern
 

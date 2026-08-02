@@ -5,19 +5,19 @@ Hiểu bản chất QA là gì, tư duy khác developer ra sao, phân biệt Ver
 
 ---
 
-## 📊 Diagrams tổng quan
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-### QA vs QC vs Testing
-![QA ⊃ QC ⊃ Testing](diagrams/qa-qc-testing.svg)
+### Mối quan hệ QA ⊃ QC ⊃ Testing
+![Mối quan hệ QA ⊃ QC ⊃ Testing](diagrams/qa-qc-testing.svg)
 
-### Bug Life Cycle
-![Bug Life Cycle](diagrams/bug-lifecycle.svg)
+### Ba phương pháp Testing (Black box, Gray box, White box)
+![Ba phương pháp Testing (Black box, Gray box, White box)](diagrams/testing-approaches.svg)
 
-### Severity vs Priority Matrix
-![Severity vs Priority](diagrams/severity-priority.svg)
+### Vòng đời của Bug (Bug Life Cycle)
+![Vòng đời của Bug (Bug Life Cycle)](diagrams/bug-lifecycle.svg)
 
-
----
+### Ma trận Severity vs Priority
+![Ma trận Severity vs Priority](diagrams/severity-priority.svg)
 
 ## 1. QA vs QC vs Testing
 

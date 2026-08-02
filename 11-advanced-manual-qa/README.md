@@ -5,6 +5,13 @@ Làm chủ kỹ thuật Session-Based Exploratory Testing (SBET), kỹ năng Bug
 
 ---
 
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+
+### Quy trình Session-Based Exploratory Testing (SBET)
+![Quy trình Session-Based Exploratory Testing (SBET)](diagrams/sbet-flow.svg)
+
+
+
 ## 1. Session-Based Exploratory Testing (SBET)
 
 Exploratory Testing không phải là test bừa bãi. SBET quản lý theo quy trình:

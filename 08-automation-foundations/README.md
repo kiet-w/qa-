@@ -5,12 +5,10 @@ Hiểu mô hình Kim tự tháp Automation (Test Automation Pyramid), chiến l�
 
 ---
 
-## 📊 Test Automation Pyramid
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-![Test Automation Pyramid](diagrams/test-pyramid.svg)
-
-
----
+### Kim tự tháp Automation Testing (Test Automation Pyramid)
+![Kim tự tháp Automation Testing (Test Automation Pyramid)](diagrams/test-pyramid.svg)
 
 ## 1. Test Automation Pyramid
 

@@ -5,16 +5,16 @@ Nắm vững cơ chế Web (SSR vs CSR, Hydration, Caching), HTTP Methods, Statu
 
 ---
 
-## 📊 Diagrams
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-### SSR vs CSR – QA Testing Perspective
-![SSR vs CSR](diagrams/ssr-csr.svg)
+### Kiến trúc Web: SSR vs CSR qua góc nhìn QA
+![Kiến trúc Web: SSR vs CSR qua góc nhìn QA](diagrams/ssr-csr.svg)
 
-### HTTP Status Codes – QA Cheat Sheet
-![HTTP Status Codes](diagrams/http-status-codes.svg)
+### Luồng HTTP Request & Response
+![Luồng HTTP Request & Response](diagrams/http-request-response.svg)
 
-
----
+### HTTP Status Codes Cheat Sheet cho QA
+![HTTP Status Codes Cheat Sheet cho QA](diagrams/http-status-codes.svg)
 
 ## 1. Web Architecture: SSR vs CSR & Caching
 

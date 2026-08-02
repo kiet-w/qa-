@@ -5,16 +5,19 @@ Nắm vững 6 kỹ thuật thiết kế test case chuẩn quốc tế (Black-bo
 
 ---
 
-## 📊 Diagrams
+## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
 
-### Equivalence Partitioning + Boundary Value Analysis
-![EP và BVA](diagrams/bva-ep.svg)
+### Risk-based Testing Prioritization
+![Risk-based Testing Prioritization](diagrams/risk-prioritization.svg)
 
-### State Transition Testing – Quy trình Đặt Hàng
-![State Transition](diagrams/state-transition.svg)
+### Equivalence Partitioning & Boundary Value Analysis
+![Equivalence Partitioning & Boundary Value Analysis](diagrams/bva-ep.svg)
 
+### Decision Table Testing Matrix
+![Decision Table Testing Matrix](diagrams/decision-table.svg)
 
----
+### State Transition Testing (Order Flow)
+![State Transition Testing (Order Flow)](diagrams/state-transition.svg)
 
 ## 1. Equivalence Partitioning (EP - Phân vùng tương đương)
 
