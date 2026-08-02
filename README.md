@@ -2,6 +2,10 @@
 
 Lộ trình này dành cho người mới bắt đầu từ con số 0. Bạn học Manual QA trước, hiểu web/API sau, rồi mới đi đến automation. Mỗi phần gồm mục tiêu, thứ tự thực hiện, checklist, bài tập và sơ đồ SVG để nhìn rõ mối liên hệ giữa các khái niệm.
 
+> 📌 **Tài liệu tham khảo chuyên sâu:**
+> - [📘 LEARNING-PATH.md — Lộ trình học sâu theo Dependency & Thực hành](LEARNING-PATH.md)
+> - [🧪 ROADMAP.md — Roadmap tổng quan từ cơ bản tới nâng cao (Tích hợp AI)](ROADMAP.md)
+
 > Nguyên tắc cốt lõi: AI giúp QA làm nhanh hơn, nhưng requirement, hành vi ứng dụng thật và sự review của con người mới quyết định kết quả đúng.
 
 ![Bản đồ lộ trình](01-start-here/diagrams/learning-map.svg)
