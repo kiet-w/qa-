@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="700" height="420" rx="14" fill="#0f172a"/>
+  <text x="350" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">Test Automation Pyramid</text>
+
+  <!-- E2E / UI Tests (top) -->
+  <polygon points="350,65 200,200 500,200" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+  <text x="350" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#fca5a5">E2E / UI Tests</text>
+  <text x="350" y="158" text-anchor="middle" font-size="11" fill="#f87171">10% — Playwright / Cypress</text>
+  <text x="350" y="174" text-anchor="middle" font-size="10" fill="#f87171">Chậm, dễ flaky, đắt</text>
+
+  <!-- Integration Tests (middle) -->
+  <polygon points="200,200 90,330 610,330" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+  <text x="350" y="258" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">Integration Tests</text>
+  <text x="350" y="276" text-anchor="middle" font-size="11" fill="#60a5fa">20% — API, DB, Service interaction</text>
+  <text x="350" y="292" text-anchor="middle" font-size="10" fill="#60a5fa">Tốc độ vừa, stable</text>
+
+  <!-- Unit Tests (base) -->
+  <polygon points="90,330 30,400 670,400" fill="#14532d" stroke="#22c55e" stroke-width="2"/>
+  <text x="350" y="358" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">Unit Tests</text>
+  <text x="350" y="376" text-anchor="middle" font-size="11" fill="#4ade80">70% — Jest / Vitest / RTL</text>
+  <text x="350" y="392" text-anchor="middle" font-size="10" fill="#4ade80">Nhanh nhất, rẻ nhất, nhiều nhất</text>
+
+  <!-- Right side labels -->
+  <text x="520" y="140" font-size="11" fill="#94a3b8">• QA viết chính</text>
+  <text x="520" y="156" font-size="11" fill="#94a3b8">• User experience</text>
+  <text x="620" y="265" font-size="11" fill="#94a3b8">• Dev + QA</text>
+  <text x="620" y="281" font-size="11" fill="#94a3b8">• API contracts</text>
+  <text x="620" y="370" font-size="11" fill="#94a3b8">• Dev viết chính</text>
+  <text x="620" y="386" font-size="11" fill="#94a3b8">• Logic functions</text>
+
+  <!-- Anti-pattern note -->
+  <rect x="20" y="58" width="145" height="50" rx="6" fill="#450a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="92" y="78" text-anchor="middle" font-size="11" fill="#fca5a5">❌ Ice Cream Cone</text>
+  <text x="92" y="94" text-anchor="middle" font-size="10" fill="#f87171">Quá nhiều E2E</text>
+  <text x="92" y="108" text-anchor="middle" font-size="10" fill="#f87171">→ CI chậm, flaky</text>
+</svg>

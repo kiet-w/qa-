@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="760" height="460" rx="14" fill="#0f172a"/>
+  <text x="380" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">OWASP Top 10 – QA Security Checklist</text>
+
+  <!-- Items -->
+  <!-- A01 -->
+  <rect x="20" y="56" width="346" height="60" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="40" y="76" font-size="12" font-weight="700" fill="#fca5a5">A01 – Broken Access Control</text>
+  <text x="40" y="92" font-size="10" fill="#f87171">QA test: User A access /api/orders/B-ID → phải nhận 403</text>
+  <text x="40" y="107" font-size="10" fill="#f87171">Test IDOR: đổi user_id trong URL/body</text>
+
+  <!-- A03 -->
+  <rect x="394" y="56" width="346" height="60" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="414" y="76" font-size="12" font-weight="700" fill="#fca5a5">A03 – Injection (XSS, SQLi)</text>
+  <text x="414" y="92" font-size="10" fill="#f87171">Nhập &lt;script&gt;alert(1)&lt;/script&gt; → không hiện alert</text>
+  <text x="414" y="107" font-size="10" fill="#f87171">Nhập ' OR '1'='1 → không bypass login</text>
+
+  <!-- A07 -->
+  <rect x="20" y="130" width="346" height="60" rx="8" fill="#431407" stroke="#f97316" stroke-width="1.5"/>
+  <text x="40" y="150" font-size="12" font-weight="700" fill="#fb923c">A07 – Auth Failures</text>
+  <text x="40" y="166" font-size="10" fill="#fdba74">5 lần sai password → bị khóa 30 phút</text>
+  <text x="40" y="181" font-size="10" fill="#fdba74">Token hết hạn → redirect về login</text>
+
+  <!-- A02 -->
+  <rect x="394" y="130" width="346" height="60" rx="8" fill="#431407" stroke="#f97316" stroke-width="1.5"/>
+  <text x="414" y="150" font-size="12" font-weight="700" fill="#fb923c">A02 – Cryptographic Failures</text>
+  <text x="414" y="166" font-size="10" fill="#fdba74">Password KHÔNG hiện plain text trong response</text>
+  <text x="414" y="181" font-size="10" fill="#fdba74">Cookie có flag Secure + HttpOnly</text>
+
+  <!-- A05 -->
+  <rect x="20" y="204" width="346" height="60" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="40" y="224" font-size="12" font-weight="700" fill="#cbd5e1">A05 – Security Misconfiguration</text>
+  <text x="40" y="240" font-size="10" fill="#94a3b8">Error response không expose stack trace</text>
+  <text x="40" y="255" font-size="10" fill="#94a3b8">Admin endpoints không public khi unauthenticated</text>
+
+  <!-- A04 -->
+  <rect x="394" y="204" width="346" height="60" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="414" y="224" font-size="12" font-weight="700" fill="#cbd5e1">A04 – Insecure Design</text>
+  <text x="414" y="240" font-size="10" fill="#94a3b8">Password reset gửi link, không gửi password cũ</text>
+  <text x="414" y="255" font-size="10" fill="#94a3b8">Confirm destructive actions (Delete Account)</text>
+
+  <!-- A09 -->
+  <rect x="20" y="278" width="346" height="60" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <text x="40" y="298" font-size="12" font-weight="700" fill="#94a3b8">A09 – Logging Failures</text>
+  <text x="40" y="314" font-size="10" fill="#64748b">Failed logins được ghi log</text>
+  <text x="40" y="329" font-size="10" fill="#64748b">Sensitive data không xuất hiện trong logs</text>
+
+  <!-- A10 -->
+  <rect x="394" y="278" width="346" height="60" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <text x="414" y="298" font-size="12" font-weight="700" fill="#94a3b8">A10 – SSRF</text>
+  <text x="414" y="314" font-size="10" fill="#64748b">URL input field không cho phép trỏ tới</text>
+  <text x="414" y="329" font-size="10" fill="#64748b">internal IPs (10.x.x.x, 192.168.x.x)</text>
+
+  <!-- IDOR detail block -->
+  <rect x="20" y="356" width="720" height="88" rx="10" fill="#1a1025" stroke="#a855f7" stroke-width="2"/>
+  <text x="380" y="376" text-anchor="middle" font-size="13" font-weight="600" fill="#d8b4fe">🔍 IDOR Test – Hướng dẫn chi tiết (Quan trọng nhất)</text>
+  <text x="30" y="396" font-size="11" fill="#94a3b8">1. Login User A → GET /api/orders → nhận order_id = 100</text>
+  <text x="30" y="412" font-size="11" fill="#94a3b8">2. Dùng TOKEN của User A → GET /api/orders/101 (order của User B)</text>
+  <text x="30" y="428" font-size="11" fill="#86efac">   ✅ Expected: 403 Forbidden</text>
+  <text x="400" y="428" font-size="11" fill="#fca5a5">   🚨 Bug nếu nhận: 200 OK với data của User B!</text>
+</svg>

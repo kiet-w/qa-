@@ -5,6 +5,13 @@ Làm chủ việc ứng dụng AI/LLM trong quy trình QA: Prompt Engineering (F
 
 ---
 
+## 📊 3-Agent Agentic Testing Architecture
+
+![Agentic Architecture](diagrams/agentic-architecture.svg)
+
+
+---
+
 ## 1. Prompt Engineering Framework cho QA (RCFCO)
 
 Để AI cho ra Test Cases / Code chất lượng, dùng công thức **RCFCO**:

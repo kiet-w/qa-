@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 360" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arr2-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <rect width="820" height="360" rx="14" fill="#0f172a"/>
+  <text x="410" y="35" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">State Transition – Quy trình Đặt Hàng</text>
+
+  <!-- States -->
+  <!-- DRAFT -->
+  <rect x="20" y="145" width="100" height="50" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="70" y="168" text-anchor="middle" font-size="13" font-weight="600" fill="#a5b4fc">DRAFT</text>
+  <text x="70" y="184" text-anchor="middle" font-size="10" fill="#64748b">Nháp</text>
+
+  <!-- SUBMITTED -->
+  <rect x="170" y="145" width="120" height="50" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="230" y="168" text-anchor="middle" font-size="13" font-weight="600" fill="#93c5fd">SUBMITTED</text>
+  <text x="230" y="184" text-anchor="middle" font-size="10" fill="#64748b">Đã đặt</text>
+
+  <!-- APPROVED -->
+  <rect x="350" y="70" width="120" height="50" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="410" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#86efac">APPROVED</text>
+  <text x="410" y="108" text-anchor="middle" font-size="10" fill="#64748b">Đã duyệt</text>
+
+  <!-- REJECTED -->
+  <rect x="350" y="230" width="120" height="50" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+  <text x="410" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#fca5a5">REJECTED</text>
+  <text x="410" y="268" text-anchor="middle" font-size="10" fill="#f87171">Bị từ chối</text>
+
+  <!-- SHIPPED -->
+  <rect x="540" y="70" width="110" height="50" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="595" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#fcd34d">SHIPPED</text>
+  <text x="595" y="108" text-anchor="middle" font-size="10" fill="#64748b">Đã giao</text>
+
+  <!-- DELIVERED -->
+  <rect x="700" y="70" width="110" height="50" rx="10" fill="#14532d" stroke="#22c55e" stroke-width="2.5"/>
+  <text x="755" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">DELIVERED</text>
+  <text x="755" y="108" text-anchor="middle" font-size="10" fill="#4ade80">✅ Hoàn thành</text>
+
+  <!-- CANCELLED -->
+  <rect x="170" y="285" width="120" height="50" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="230" y="308" text-anchor="middle" font-size="13" font-weight="600" fill="#cbd5e1">CANCELLED</text>
+  <text x="230" y="324" text-anchor="middle" font-size="10" fill="#64748b">Huỷ</text>
+
+  <!-- Arrows - valid transitions -->
+  <line x1="120" y1="170" x2="168" y2="170" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr2)"/>
+  <text x="144" y="164" text-anchor="middle" font-size="9" fill="#64748b">submit</text>
+
+  <line x1="290" y1="155" x2="348" y2="108" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arr2)"/>
+  <text x="310" y="128" text-anchor="middle" font-size="9" fill="#86efac">approve</text>
+
+  <line x1="290" y1="185" x2="348" y2="245" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arr2-red)"/>
+  <text x="308" y="225" text-anchor="middle" font-size="9" fill="#f87171">reject</text>
+
+  <line x1="470" y1="95" x2="538" y2="95" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr2)"/>
+  <text x="504" y="89" text-anchor="middle" font-size="9" fill="#64748b">ship</text>
+
+  <line x1="650" y1="95" x2="698" y2="95" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arr2)"/>
+  <text x="674" y="89" text-anchor="middle" font-size="9" fill="#86efac">deliver</text>
+
+  <line x1="230" y1="195" x2="230" y2="283" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
+  <text x="206" y="244" text-anchor="middle" font-size="9" fill="#94a3b8">cancel</text>
+
+  <!-- Invalid transition hint -->
+  <text x="410" y="330" text-anchor="middle" font-size="12" fill="#475569">⚠️ Invalid test: DRAFT → SHIPPED trực tiếp phải bị từ chối</text>
+
+  <!-- Legend -->
+  <line x1="30" y1="360" x2="60" y2="360" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="70" y="360" font-size="10" fill="#86efac">Valid transition</text>
+  <line x1="160" y1="360" x2="190" y2="360" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="200" y="360" font-size="10" fill="#94a3b8">Optional/cancel</text>
+</svg>

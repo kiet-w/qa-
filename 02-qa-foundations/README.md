@@ -5,6 +5,20 @@ Hiểu bản chất QA là gì, tư duy khác developer ra sao, phân biệt Ver
 
 ---
 
+## 📊 Diagrams tổng quan
+
+### QA vs QC vs Testing
+![QA ⊃ QC ⊃ Testing](diagrams/qa-qc-testing.svg)
+
+### Bug Life Cycle
+![Bug Life Cycle](diagrams/bug-lifecycle.svg)
+
+### Severity vs Priority Matrix
+![Severity vs Priority](diagrams/severity-priority.svg)
+
+
+---
+
 ## 1. QA vs QC vs Testing
 
 | Khái niệm | Định nghĩa & Mục tiêu | Tính chất | Ví dụ |

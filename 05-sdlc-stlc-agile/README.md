@@ -5,6 +5,13 @@ Hiểu rõ vòng đời phát triển phần mềm (SDLC), vòng đời kiểm t
 
 ---
 
+## 📊 Agile Sprint Flow & Vai trò QA
+
+![Agile Sprint Flow](diagrams/agile-sprint.svg)
+
+
+---
+
 ## 1. SDLC Models & Vị trí của QA
 
 - **Waterfall:** QA chỉ vào test ở đoạn cuối ➔ Rủi ro phát hiện lỗi muộn, chi phí sửa cực đắt.

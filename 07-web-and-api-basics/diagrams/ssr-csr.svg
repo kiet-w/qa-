@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="760" height="340" rx="14" fill="#0f172a"/>
+  <text x="380" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">SSR vs CSR – QA Testing Perspective</text>
+
+  <!-- SSR Column -->
+  <rect x="20" y="58" width="350" height="260" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="195" y="82" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">SSR (Server-Side Rendering)</text>
+  <text x="195" y="100" text-anchor="middle" font-size="11" fill="#64748b">Next.js getServerSideProps / App Router</text>
+  <!-- Flow -->
+  <rect x="80" y="115" width="230" height="30" rx="6" fill="#312e81" stroke="#6366f1"/>
+  <text x="195" y="134" text-anchor="middle" font-size="11" fill="#c7d2fe">1. Request → Server render HTML đầy đủ</text>
+  <rect x="80" y="155" width="230" height="30" rx="6" fill="#312e81" stroke="#6366f1"/>
+  <text x="195" y="174" text-anchor="middle" font-size="11" fill="#c7d2fe">2. Browser nhận HTML → hiển thị ngay</text>
+  <rect x="80" y="195" width="230" height="30" rx="6" fill="#312e81" stroke="#6366f1"/>
+  <text x="195" y="214" text-anchor="middle" font-size="11" fill="#c7d2fe">3. React hydrate → gắn event handlers</text>
+
+  <text x="195" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#f59e0b">⚠️ QA phải test:</text>
+  <text x="195" y="263" text-anchor="middle" font-size="10" fill="#fcd34d">• Hydration mismatch (UI flicker)</text>
+  <text x="195" y="278" text-anchor="middle" font-size="10" fill="#fcd34d">• Button clickable trước/sau hydration?</text>
+  <text x="195" y="293" text-anchor="middle" font-size="10" fill="#fcd34d">• "View Page Source" có content không?</text>
+
+  <!-- CSR Column -->
+  <rect x="390" y="58" width="350" height="260" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+  <text x="565" y="82" text-anchor="middle" font-size="15" font-weight="700" fill="#67e8f9">CSR (Client-Side Rendering)</text>
+  <text x="565" y="100" text-anchor="middle" font-size="11" fill="#64748b">Create React App / Pure SPA</text>
+  <!-- Flow -->
+  <rect x="445" y="115" width="240" height="30" rx="6" fill="#083344" stroke="#22d3ee"/>
+  <text x="565" y="134" text-anchor="middle" font-size="11" fill="#a5f3fc">1. Request → HTML rỗng (only JS bundle)</text>
+  <rect x="445" y="155" width="240" height="30" rx="6" fill="#083344" stroke="#22d3ee"/>
+  <text x="565" y="174" text-anchor="middle" font-size="11" fill="#a5f3fc">2. Browser load JS → React render UI</text>
+  <rect x="445" y="195" width="240" height="30" rx="6" fill="#083344" stroke="#22d3ee"/>
+  <text x="565" y="214" text-anchor="middle" font-size="11" fill="#a5f3fc">3. Fetch API → update UI với data</text>
+
+  <text x="565" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#f59e0b">⚠️ QA phải test:</text>
+  <text x="565" y="263" text-anchor="middle" font-size="10" fill="#fcd34d">• Loading/Skeleton states đúng không?</text>
+  <text x="565" y="278" text-anchor="middle" font-size="10" fill="#fcd34d">• Race condition khi fetch song song</text>
+  <text x="565" y="293" text-anchor="middle" font-size="10" fill="#fcd34d">• Playwright wait cho data load xong!</text>
+</svg>

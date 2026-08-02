@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="800" height="360" rx="14" fill="#0f172a"/>
+  <text x="400" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">Agile Sprint Flow &amp; Vai trò QA</text>
+
+  <!-- Phases as boxes -->
+  <!-- Sprint Planning -->
+  <rect x="20" y="80" width="130" height="200" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="85" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#a5b4fc">Sprint</text>
+  <text x="85" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#a5b4fc">Planning</text>
+  <text x="85" y="150" text-anchor="middle" font-size="10" fill="#64748b">QA: Đặt câu hỏi</text>
+  <text x="85" y="165" text-anchor="middle" font-size="10" fill="#64748b">làm rõ requirement</text>
+  <text x="85" y="180" text-anchor="middle" font-size="10" fill="#64748b">+ Estimate</text>
+  <text x="85" y="195" text-anchor="middle" font-size="10" fill="#64748b">test effort</text>
+  <text x="85" y="215" text-anchor="middle" font-size="9" fill="#4f46e5">📋 Viết Test Cases</text>
+  <text x="85" y="230" text-anchor="middle" font-size="9" fill="#4f46e5">song song Dev code</text>
+  <text x="85" y="252" text-anchor="middle" font-size="9" fill="#94a3b8">1-2 ngày đầu</text>
+
+  <!-- Dev + QA -->
+  <rect x="180" y="80" width="170" height="200" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="265" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#93c5fd">Dev &amp; QA</text>
+  <text x="265" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#93c5fd">Parallel</text>
+  <text x="265" y="150" text-anchor="middle" font-size="10" fill="#64748b">Dev: Code feature</text>
+  <text x="265" y="165" text-anchor="middle" font-size="10" fill="#64748b">QA: Test cases ready</text>
+  <text x="265" y="185" text-anchor="middle" font-size="10" fill="#64748b">Daily Standup:</text>
+  <text x="265" y="200" text-anchor="middle" font-size="9" fill="#3b82f6">📢 Hôm qua/hôm nay</text>
+  <text x="265" y="215" text-anchor="middle" font-size="9" fill="#3b82f6">Blocker nào?</text>
+  <text x="265" y="240" text-anchor="middle" font-size="9" fill="#94a3b8">Sprint ngày 2-8</text>
+
+  <!-- QA Execution -->
+  <rect x="380" y="80" width="150" height="200" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="455" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#86efac">QA</text>
+  <text x="455" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#86efac">Execution</text>
+  <text x="455" y="150" text-anchor="middle" font-size="10" fill="#64748b">Execute test cases</text>
+  <text x="455" y="165" text-anchor="middle" font-size="10" fill="#64748b">Report bugs trên Jira</text>
+  <text x="455" y="185" text-anchor="middle" font-size="9" fill="#22c55e">✅ Pass → Done</text>
+  <text x="455" y="200" text-anchor="middle" font-size="9" fill="#ef4444">🐛 Fail → Reopen</text>
+  <text x="455" y="215" text-anchor="middle" font-size="9" fill="#64748b">Regression test</text>
+  <text x="455" y="240" text-anchor="middle" font-size="9" fill="#94a3b8">Sprint ngày 7-10</text>
+
+  <!-- Sprint Review -->
+  <rect x="560" y="80" width="130" height="200" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="625" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#fcd34d">Sprint</text>
+  <text x="625" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#fcd34d">Review &amp; Retro</text>
+  <text x="625" y="150" text-anchor="middle" font-size="10" fill="#64748b">QA: Report</text>
+  <text x="625" y="165" text-anchor="middle" font-size="10" fill="#64748b">chất lượng</text>
+  <text x="625" y="180" text-anchor="middle" font-size="10" fill="#64748b">Test summary</text>
+  <text x="625" y="205" text-anchor="middle" font-size="10" fill="#64748b">Retro: cải tiến</text>
+  <text x="625" y="220" text-anchor="middle" font-size="10" fill="#64748b">quy trình test</text>
+  <text x="625" y="252" text-anchor="middle" font-size="9" fill="#94a3b8">Ngày cuối sprint</text>
+
+  <!-- Arrows -->
+  <line x1="150" y1="180" x2="178" y2="180" stroke="#64748b" stroke-width="1.8" marker-end="url(#a3)"/>
+  <line x1="350" y1="180" x2="378" y2="180" stroke="#64748b" stroke-width="1.8" marker-end="url(#a3)"/>
+  <line x1="530" y1="180" x2="558" y2="180" stroke="#64748b" stroke-width="1.8" marker-end="url(#a3)"/>
+
+  <!-- DOD -->
+  <rect x="20" y="305" width="720" height="42" rx="8" fill="#14532d" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="323" text-anchor="middle" font-size="12" font-weight="600" fill="#86efac">Definition of Done (DoD):</text>
+  <text x="380" y="340" text-anchor="middle" font-size="11" fill="#4ade80">Code reviewed ✔  Unit test pass ✔  QA verified ✔  No Critical bugs ✔  Deployed to Staging ✔</text>
+</svg>

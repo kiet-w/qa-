@@ -5,6 +5,17 @@ Nắm vững cơ chế Web (SSR vs CSR, Hydration, Caching), HTTP Methods, Statu
 
 ---
 
+## 📊 Diagrams
+
+### SSR vs CSR – QA Testing Perspective
+![SSR vs CSR](diagrams/ssr-csr.svg)
+
+### HTTP Status Codes – QA Cheat Sheet
+![HTTP Status Codes](diagrams/http-status-codes.svg)
+
+
+---
+
 ## 1. Web Architecture: SSR vs CSR & Caching
 
 - **SSR (Server-Side Rendering - Next.js):** HTML được render từ server. QA cần chú ý lỗi **Hydration Mismatch** (HTML server trả về khác với client render).

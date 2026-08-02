@@ -5,6 +5,13 @@ Làm chủ mô hình Page Object Model (POM), Quản lý Fixtures, Xử lý Flak
 
 ---
 
+## 📊 Page Object Model (POM) Architecture
+
+![POM Architecture](diagrams/pom-architecture.svg)
+
+
+---
+
 ## 1. Page Object Model (POM) Pattern
 
 ```typescript

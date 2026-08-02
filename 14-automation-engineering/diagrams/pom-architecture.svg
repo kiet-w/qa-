@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="760" height="380" rx="14" fill="#0f172a"/>
+  <text x="380" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">Page Object Model (POM) Architecture</text>
+
+  <!-- Test Files Layer -->
+  <rect x="20" y="60" width="720" height="80" rx="10" fill="#0a2416" stroke="#22c55e" stroke-width="2"/>
+  <text x="100" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">Test Files (specs)</text>
+  <text x="100" y="100" text-anchor="middle" font-size="10" fill="#64748b">tests/auth.spec.ts</text>
+  <text x="100" y="115" text-anchor="middle" font-size="10" fill="#64748b">tests/checkout.spec.ts</text>
+
+  <rect x="200" y="68" width="340" height="60" rx="8" fill="#1a3a2a" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="370" y="87" text-anchor="middle" font-size="11" fill="#86efac">Clean, readable tests:</text>
+  <text x="370" y="103" text-anchor="middle" font-size="10" font-style="italic" fill="#4ade80">await loginPage.login('user@test.com', 'Pass123!');</text>
+  <text x="370" y="119" text-anchor="middle" font-size="10" font-style="italic" fill="#4ade80">await loginPage.expectLoginSuccess();</text>
+
+  <!-- Arrow down -->
+  <line x1="380" y1="140" x2="380" y2="168" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+  <text x="390" y="157" font-size="10" fill="#64748b">calls</text>
+
+  <!-- Page Objects Layer -->
+  <rect x="20" y="170" width="720" height="110" rx="10" fill="#1e1a3a" stroke="#818cf8" stroke-width="2"/>
+  <text x="100" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#a5b4fc">Page Objects (pages/)</text>
+  <text x="100" y="213" text-anchor="middle" font-size="10" fill="#64748b">pages/login.page.ts</text>
+  <text x="100" y="228" text-anchor="middle" font-size="10" fill="#64748b">pages/dashboard.page.ts</text>
+  <text x="100" y="243" text-anchor="middle" font-size="10" fill="#64748b">pages/checkout.page.ts</text>
+
+  <rect x="200" y="178" width="340" height="95" rx="8" fill="#2e1a5f" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="370" y="197" text-anchor="middle" font-size="11" fill="#a5b4fc">Encapsulates selectors &amp; actions:</text>
+  <text x="370" y="213" text-anchor="middle" font-size="10" font-style="italic" fill="#c4b5fd">readonly loginBtn = page.getByRole('button', {'{name: "Login"}'});</text>
+  <text x="370" y="229" text-anchor="middle" font-size="10" font-style="italic" fill="#c4b5fd">async login(email, pass) {'{'}</text>
+  <text x="370" y="245" text-anchor="middle" font-size="10" font-style="italic" fill="#c4b5fd">  await this.emailInput.fill(email); ...</text>
+  <text x="370" y="261" text-anchor="middle" font-size="10" font-style="italic" fill="#c4b5fd">{'}'}</text>
+
+  <!-- Arrow down -->
+  <line x1="380" y1="280" x2="380" y2="308" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+  <text x="390" y="297" font-size="10" fill="#64748b">drives</text>
+
+  <!-- Browser Layer -->
+  <rect x="20" y="310" width="720" height="58" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="380" y="335" text-anchor="middle" font-size="13" font-weight="700" fill="#fcd34d">🌐 Browser (Chrome / Firefox / WebKit)</text>
+  <text x="380" y="355" text-anchor="middle" font-size="11" fill="#94a3b8">Playwright → Chromium / Firefox / WebKit via DevTools Protocol</text>
+
+  <!-- Key benefit -->
+  <text x="620" y="185" text-anchor="middle" font-size="11" font-weight="600" fill="#f59e0b">💡 Key Benefit:</text>
+  <text x="620" y="201" text-anchor="middle" font-size="10" fill="#94a3b8">Button text đổi? Chỉ</text>
+  <text x="620" y="217" text-anchor="middle" font-size="10" fill="#94a3b8">sửa 1 dòng trong</text>
+  <text x="620" y="233" text-anchor="middle" font-size="10" fill="#94a3b8">Page Object, không</text>
+  <text x="620" y="249" text-anchor="middle" font-size="10" fill="#94a3b8">sửa 50 test files!</text>
+</svg>

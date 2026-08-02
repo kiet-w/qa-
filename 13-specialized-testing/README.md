@@ -5,6 +5,13 @@ Nắm vững khái niệm và thực hành cơ bản với k6 (Load Testing), OW
 
 ---
 
+## 📊 OWASP Top 10 – Security Testing Checklist
+
+![OWASP Top 10](diagrams/owasp-top10.svg)
+
+
+---
+
 ## 1. Performance / Load Testing với k6
 
 ```javascript

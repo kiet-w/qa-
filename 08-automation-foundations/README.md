@@ -5,6 +5,13 @@ Hiểu mô hình Kim tự tháp Automation (Test Automation Pyramid), chiến l�
 
 ---
 
+## 📊 Test Automation Pyramid
+
+![Test Automation Pyramid](diagrams/test-pyramid.svg)
+
+
+---
+
 ## 1. Test Automation Pyramid
 
 ```

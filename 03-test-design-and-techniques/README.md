@@ -5,6 +5,17 @@ Nắm vững 6 kỹ thuật thiết kế test case chuẩn quốc tế (Black-bo
 
 ---
 
+## 📊 Diagrams
+
+### Equivalence Partitioning + Boundary Value Analysis
+![EP và BVA](diagrams/bva-ep.svg)
+
+### State Transition Testing – Quy trình Đặt Hàng
+![State Transition](diagrams/state-transition.svg)
+
+
+---
+
 ## 1. Equivalence Partitioning (EP - Phân vùng tương đương)
 
 Chia tập dữ liệu đầu vào thành các nhóm (partitions) mà hệ thống xử lý giống nhau. Chỉ cần chọn 1 giá trị đại diện cho mỗi nhóm.
