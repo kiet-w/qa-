@@ -1,38 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="'Segoe UI', Arial, sans-serif">
-  <rect width="760" height="340" rx="14" fill="#0f172a"/>
-  <text x="380" y="36" text-anchor="middle" font-size="19" font-weight="700" fill="#f8fafc">SSR vs CSR – QA Testing Perspective</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+  <title id="title">SSR vs CSR Web Architecture for QA</title>
+  <desc id="desc">Comparison of Server-Side Rendering and Client-Side Rendering flows and QA testing concerns.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0 0L0 6L9 3z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="1500" height="900" fill="#f8fafc"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#0f172a">SSR vs CSR: Web Architecture &amp; QA Testing Focus</text>
 
-  <!-- SSR Column -->
-  <rect x="20" y="58" width="350" height="260" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
-  <text x="195" y="82" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">SSR (Server-Side Rendering)</text>
-  <text x="195" y="100" text-anchor="middle" font-size="11" fill="#64748b">Next.js getServerSideProps / App Router</text>
-  <!-- Flow -->
-  <rect x="80" y="115" width="230" height="30" rx="6" fill="#312e81" stroke="#6366f1"/>
-  <text x="195" y="134" text-anchor="middle" font-size="11" fill="#c7d2fe">1. Request → Server render HTML đầy đủ</text>
-  <rect x="80" y="155" width="230" height="30" rx="6" fill="#312e81" stroke="#6366f1"/>
-  <text x="195" y="174" text-anchor="middle" font-size="11" fill="#c7d2fe">2. Browser nhận HTML → hiển thị ngay</text>
-  <rect x="80" y="195" width="230" height="30" rx="6" fill="#312e81" stroke="#6366f1"/>
-  <text x="195" y="214" text-anchor="middle" font-size="11" fill="#c7d2fe">3. React hydrate → gắn event handlers</text>
+  <g font-family="Arial, sans-serif" stroke="#334155" stroke-width="2">
+    <!-- SSR Side -->
+    <rect x="70" y="140" width="650" height="640" rx="18" fill="#dbeafe"/>
+    <text x="395" y="190" text-anchor="middle" font-size="26" font-weight="700" stroke="none" fill="#1e3a8a">SSR (Server-Side Rendering — Next.js)</text>
+    <text x="395" y="225" text-anchor="middle" font-size="18" stroke="none" fill="#3b82f6">HTML được render hoàn chỉnh ngay tại Server</text>
 
-  <text x="195" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#f59e0b">⚠️ QA phải test:</text>
-  <text x="195" y="263" text-anchor="middle" font-size="10" fill="#fcd34d">• Hydration mismatch (UI flicker)</text>
-  <text x="195" y="278" text-anchor="middle" font-size="10" fill="#fcd34d">• Button clickable trước/sau hydration?</text>
-  <text x="195" y="293" text-anchor="middle" font-size="10" fill="#fcd34d">• "View Page Source" có content không?</text>
+    <rect x="110" y="260" width="570" height="80" rx="10" fill="#ffffff"/>
+    <text x="395" y="305" text-anchor="middle" font-size="18" stroke="none">1. User request ➔ Server render HTML đầy đủ data</text>
 
-  <!-- CSR Column -->
-  <rect x="390" y="58" width="350" height="260" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
-  <text x="565" y="82" text-anchor="middle" font-size="15" font-weight="700" fill="#67e8f9">CSR (Client-Side Rendering)</text>
-  <text x="565" y="100" text-anchor="middle" font-size="11" fill="#64748b">Create React App / Pure SPA</text>
-  <!-- Flow -->
-  <rect x="445" y="115" width="240" height="30" rx="6" fill="#083344" stroke="#22d3ee"/>
-  <text x="565" y="134" text-anchor="middle" font-size="11" fill="#a5f3fc">1. Request → HTML rỗng (only JS bundle)</text>
-  <rect x="445" y="155" width="240" height="30" rx="6" fill="#083344" stroke="#22d3ee"/>
-  <text x="565" y="174" text-anchor="middle" font-size="11" fill="#a5f3fc">2. Browser load JS → React render UI</text>
-  <rect x="445" y="195" width="240" height="30" rx="6" fill="#083344" stroke="#22d3ee"/>
-  <text x="565" y="214" text-anchor="middle" font-size="11" fill="#a5f3fc">3. Fetch API → update UI với data</text>
+    <rect x="110" y="360" width="570" height="80" rx="10" fill="#ffffff"/>
+    <text x="395" y="405" text-anchor="middle" font-size="18" stroke="none">2. Browser nhận HTML ➔ Hợp lệ &amp; Hiển thị tức thì</text>
 
-  <text x="565" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#f59e0b">⚠️ QA phải test:</text>
-  <text x="565" y="263" text-anchor="middle" font-size="10" fill="#fcd34d">• Loading/Skeleton states đúng không?</text>
-  <text x="565" y="278" text-anchor="middle" font-size="10" fill="#fcd34d">• Race condition khi fetch song song</text>
-  <text x="565" y="293" text-anchor="middle" font-size="10" fill="#fcd34d">• Playwright wait cho data load xong!</text>
+    <rect x="110" y="460" width="570" height="80" rx="10" fill="#ffffff"/>
+    <text x="395" y="505" text-anchor="middle" font-size="18" stroke="none">3. React Hydration ➔ Gắn event handlers vào DOM</text>
+
+    <rect x="110" y="570" width="570" height="180" rx="12" fill="#eff6ff"/>
+    <text x="130" y="605" font-size="20" font-weight="700" stroke="none" fill="#1d4ed8">⚠️ Trọng tâm QA cần Test (SSR):</text>
+    <text x="130" y="640" font-size="17" stroke="none" fill="#475569">• Lỗi Hydration Mismatch (Server HTML ≠ Client HTML)</text>
+    <text x="130" y="675" font-size="17" stroke="none" fill="#475569">• Button có click được TRƯỚC khi Hydration hoàn tất?</text>
+    <text x="130" y="710" font-size="17" stroke="none" fill="#475569">• View Source (Ctrl+U) kiểm tra SEO &amp; Meta tags</text>
+
+    <!-- CSR Side -->
+    <rect x="780" y="140" width="650" height="640" rx="18" fill="#cffafe"/>
+    <text x="1105" y="190" text-anchor="middle" font-size="26" font-weight="700" stroke="none" fill="#0891b2">CSR (Client-Side Rendering — React SPA)</text>
+    <text x="1105" y="225" text-anchor="middle" font-size="18" stroke="none" fill="#06b6d4">Server trả HTML rỗng, JS Bundle render UI tại Client</text>
+
+    <rect x="820" y="260" width="570" height="80" rx="10" fill="#ffffff"/>
+    <text x="1105" y="305" text-anchor="middle" font-size="18" stroke="none">1. User request ➔ Server trả HTML rỗng (`&lt;div id="root"&gt;`)</text>
+
+    <rect x="820" y="360" width="570" height="80" rx="10" fill="#ffffff"/>
+    <text x="1105" y="405" text-anchor="middle" font-size="18" stroke="none">2. Browser tải JS bundle ➔ Execute React ➔ Render Skeleton</text>
+
+    <rect x="820" y="460" width="570" height="80" rx="10" fill="#ffffff"/>
+    <text x="1105" y="505" text-anchor="middle" font-size="18" stroke="none">3. Client gọi API (Fetch/Axios) ➔ Đổ dữ liệu vào UI</text>
+
+    <rect x="820" y="570" width="570" height="180" rx="12" fill="#ecfeff"/>
+    <text x="840" y="605" font-size="20" font-weight="700" stroke="none" fill="#0e7490">⚠️ Trọng tâm QA cần Test (CSR):</text>
+    <text x="840" y="640" font-size="17" stroke="none" fill="#475569">• Trạng thái Loading / Skeleton / Empty State</text>
+    <text x="840" y="675" font-size="17" stroke="none" fill="#475569">• Race condition khi gọi nhiều API song song</text>
+    <text x="840" y="710" font-size="17" stroke="none" fill="#475569">• Playwright Automation: Phải wait API load xong mới assert</text>
+  </g>
+
+  <text x="750" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">Hiểu rõ kiến trúc rendering giúp QA viết assertion chính xác và phát hiện các lỗi hydrations/loading.</text>
 </svg>

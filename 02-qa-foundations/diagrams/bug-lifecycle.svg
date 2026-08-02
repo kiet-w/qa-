@@ -1,91 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+  <title id="title">Bug life cycle workflow</title>
+  <desc id="desc">Full defect status transitions from New to Verified/Closed including reopens and rejections.</desc>
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0 0L0 6L9 3z" fill="#334155"/>
     </marker>
-    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#ef4444"/>
-    </marker>
-    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#22c55e"/>
-    </marker>
-    <marker id="arr-yellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b"/>
-    </marker>
-    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-opacity="0.2"/></filter>
   </defs>
-  <rect width="820" height="420" rx="14" fill="#0f172a"/>
-  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#f8fafc">Bug Life Cycle</text>
+  <rect width="1500" height="900" fill="#f8fafc"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#0f172a">Bug Life Cycle: complete status transition flow</text>
 
-  <!-- Node definitions: cx,cy, label, color -->
-  <!-- NEW -->
-  <rect x="30" y="70" width="110" height="46" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#sh)"/>
-  <text x="85" y="89" text-anchor="middle" font-size="13" font-weight="600" fill="#93c5fd">NEW</text>
-  <text x="85" y="106" text-anchor="middle" font-size="10" fill="#64748b">QA tìm được</text>
+  <g font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#0f172a" stroke="#334155" stroke-width="2">
+    <!-- NEW -->
+    <rect x="70" y="240" width="180" height="90" rx="14" fill="#dbeafe"/>
+    <text x="160" y="280" stroke="none" font-weight="700">NEW</text>
+    <text x="160" y="308" font-size="16" stroke="none" fill="#475569">QA tạo bug</text>
 
-  <!-- OPEN -->
-  <rect x="220" y="70" width="110" height="46" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2" filter="url(#sh)"/>
-  <text x="275" y="89" text-anchor="middle" font-size="13" font-weight="600" fill="#a5b4fc">OPEN</text>
-  <text x="275" y="106" text-anchor="middle" font-size="10" fill="#64748b">Assign to Dev</text>
+    <!-- OPEN -->
+    <rect x="330" y="240" width="180" height="90" rx="14" fill="#fef3c7"/>
+    <text x="420" y="280" stroke="none" font-weight="700">OPEN</text>
+    <text x="420" y="308" font-size="16" stroke="none" fill="#475569">Assign to Dev</text>
 
-  <!-- IN PROGRESS -->
-  <rect x="420" y="70" width="130" height="46" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
-  <text x="485" y="89" text-anchor="middle" font-size="13" font-weight="600" fill="#fcd34d">IN PROGRESS</text>
-  <text x="485" y="106" text-anchor="middle" font-size="10" fill="#64748b">Dev đang sửa</text>
+    <!-- IN PROGRESS -->
+    <rect x="590" y="240" width="190" height="90" rx="14" fill="#fee2e2"/>
+    <text x="685" y="280" stroke="none" font-weight="700">IN PROGRESS</text>
+    <text x="685" y="308" font-size="16" stroke="none" fill="#475569">Dev đang sửa</text>
 
-  <!-- FIXED -->
-  <rect x="630" y="70" width="110" height="46" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
-  <text x="685" y="89" text-anchor="middle" font-size="13" font-weight="600" fill="#86efac">FIXED</text>
-  <text x="685" y="106" text-anchor="middle" font-size="10" fill="#64748b">Dev xong</text>
+    <!-- FIXED -->
+    <rect x="860" y="240" width="180" height="90" rx="14" fill="#ede9fe"/>
+    <text x="950" y="280" stroke="none" font-weight="700">FIXED</text>
+    <text x="950" y="308" font-size="16" stroke="none" fill="#475569">Dev xong code</text>
 
-  <!-- RETEST -->
-  <rect x="520" y="210" width="120" height="46" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="2" filter="url(#sh)"/>
-  <text x="580" y="228" text-anchor="middle" font-size="13" font-weight="600" fill="#67e8f9">RETEST</text>
-  <text x="580" y="245" text-anchor="middle" font-size="10" fill="#64748b">QA test lại</text>
+    <!-- RETEST -->
+    <rect x="1130" y="240" width="180" height="90" rx="14" fill="#cffafe"/>
+    <text x="1220" y="280" stroke="none" font-weight="700">RETEST</text>
+    <text x="1220" y="308" font-size="16" stroke="none" fill="#475569">QA test lại</text>
 
-  <!-- VERIFIED / CLOSED -->
-  <rect x="340" y="330" width="140" height="46" rx="10" fill="#14532d" stroke="#22c55e" stroke-width="2.5" filter="url(#sh)"/>
-  <text x="410" y="348" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">VERIFIED ✅</text>
-  <text x="410" y="365" text-anchor="middle" font-size="10" fill="#4ade80">Closed – Bug đã fix</text>
+    <!-- CLOSED -->
+    <rect x="1130" y="520" width="180" height="90" rx="14" fill="#bbf7d0"/>
+    <text x="1220" y="560" stroke="none" font-weight="700">CLOSED ✅</text>
+    <text x="1220" y="588" font-size="16" stroke="none" fill="#16a34a">Fix verified</text>
 
-  <!-- REOPENED -->
-  <rect x="650" y="210" width="120" height="46" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="2" filter="url(#sh)"/>
-  <text x="710" y="228" text-anchor="middle" font-size="13" font-weight="600" fill="#fb923c">REOPENED 🔄</text>
-  <text x="710" y="245" text-anchor="middle" font-size="10" fill="#64748b">Vẫn còn lỗi</text>
+    <!-- REOPENED -->
+    <rect x="860" y="520" width="180" height="90" rx="14" fill="#fecaca"/>
+    <text x="950" y="560" stroke="none" font-weight="700">REOPENED 🔄</text>
+    <text x="950" y="588" font-size="16" stroke="none" fill="#dc2626">Lỗi vẫn còn</text>
 
-  <!-- REJECTED -->
-  <rect x="30" y="210" width="120" height="46" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2" filter="url(#sh)"/>
-  <text x="90" y="228" text-anchor="middle" font-size="13" font-weight="600" fill="#fca5a5">REJECTED ❌</text>
-  <text x="90" y="245" text-anchor="middle" font-size="10" fill="#f87171">By design/Not a bug</text>
+    <!-- REJECTED -->
+    <rect x="330" y="520" width="180" height="90" rx="14" fill="#e2e8f0"/>
+    <text x="420" y="560" stroke="none" font-weight="700">REJECTED ❌</text>
+    <text x="420" y="588" font-size="16" stroke="none" fill="#475569">Not a bug</text>
 
-  <!-- DEFERRED -->
-  <rect x="200" y="210" width="120" height="46" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="2" filter="url(#sh)"/>
-  <text x="260" y="228" text-anchor="middle" font-size="13" font-weight="600" fill="#cbd5e1">DEFERRED ⏸️</text>
-  <text x="260" y="245" text-anchor="middle" font-size="10" fill="#64748b">Sửa sau / Backlog</text>
+    <!-- DEFERRED -->
+    <rect x="590" y="520" width="180" height="90" rx="14" fill="#f1f5f9"/>
+    <text x="685" y="560" stroke="none" font-weight="700">DEFERRED ⏸️</text>
+    <text x="685" y="588" font-size="16" stroke="none" fill="#475569">Sửa sau</text>
+  </g>
 
-  <!-- Arrows -->
-  <!-- NEW → OPEN -->
-  <line x1="140" y1="93" x2="218" y2="93" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
-  <!-- OPEN → IN PROGRESS -->
-  <line x1="330" y1="93" x2="418" y2="93" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
-  <!-- IN PROGRESS → FIXED -->
-  <line x1="550" y1="93" x2="628" y2="93" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
-  <!-- FIXED → RETEST -->
-  <line x1="685" y1="116" x2="620" y2="210" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arr-green)"/>
-  <!-- RETEST → VERIFIED -->
-  <line x1="560" y1="256" x2="480" y2="330" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arr-green)"/>
-  <!-- RETEST → REOPENED -->
-  <line x1="640" y1="233" x2="650" y2="233" stroke="#f97316" stroke-width="1.8" marker-end="url(#arr-yellow)"/>
-  <!-- REOPENED → IN PROGRESS (back) -->
-  <path d="M710,210 L710,120 L550,120 L550,116" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-yellow)"/>
-  <!-- OPEN → REJECTED -->
-  <line x1="275" y1="116" x2="150" y2="210" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arr-red)"/>
-  <!-- OPEN → DEFERRED -->
-  <line x1="275" y1="116" x2="268" y2="208" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Connectors -->
+  <g stroke="#334155" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <!-- Main line -->
+    <path d="M250 285H330"/>
+    <path d="M510 285H590"/>
+    <path d="M780 285H860"/>
+    <path d="M1040 285H1130"/>
+    <path d="M1220 330V520"/>
 
-  <!-- Legend -->
-  <text x="30" y="400" font-size="11" fill="#64748b">── Normal flow</text>
-  <text x="180" y="400" font-size="11" fill="#22c55e">── Pass / Fix confirmed</text>
-  <text x="360" y="400" font-size="11" fill="#f97316">── Reopen loop</text>
-  <text x="490" y="400" font-size="11" fill="#ef4444">── Rejected / Not a bug</text>
+    <!-- Reopen path -->
+    <path d="M1130 565H1040"/>
+    <path d="M950 520V330"/>
+
+    <!-- Reject & Deferred paths -->
+    <path d="M420 330V520"/>
+    <path d="M685 330V520"/>
+  </g>
+
+  <text x="750" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">QA xác minh lỗi theo đúng kỳ vọng ban đầu; chỉ khi PASS hoàn toàn mới được chuyển trạng thái CLOSED.</text>
 </svg>
