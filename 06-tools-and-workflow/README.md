@@ -5,17 +5,9 @@ Thành thạo công cụ Chrome DevTools cho mục đích QA, quản lý bug tr�
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
-
-### Quy trình điều tra lỗi bằng Chrome DevTools
-![Quy trình điều tra lỗi bằng Chrome DevTools](diagrams/devtools-investigation.svg)
-
-### Quy trình quản lý Bug Ticket trên Jira
-![Quy trình quản lý Bug Ticket trên Jira](diagrams/jira-workflow.svg)
-
-
-
 ## 1. Chrome DevTools qua góc nhìn QA
+
+![Chrome DevTools Investigation Workflow](diagrams/devtools-investigation.svg)
 
 - **Console Tab:** Phát hiện các lỗi JavaScript ẩn (Uncaught TypeError, Red Console Errors).
 - **Network Tab:** Check API Request/Response status (200, 400, 500), payload gửi đi, response data, và timing latency.
@@ -26,22 +18,14 @@ Thành thạo công cụ Chrome DevTools cho mục đích QA, quản lý bug tr�
 
 ## 2. Quản lý Bug trên Jira / Trello
 
-- **Jira Workflow:** `To Do ➔ In Progress ➔ Ready for QA ➔ In QA ➔ Done (hoặc Reopened)`.
-- **Bug Ticket Best Practices:** Đính kèm screenshot/video, ghi rõ Build Version, Environment, và các bước reproduction.
+![Jira Bug Tracking Workflow](diagrams/jira-workflow.svg)
 
 ---
 
-## 3. Test Management Tools (TestRail)
+## 3. Test Management Tools (TestRail) & Docker
 
-- Quản lý Repository Test Cases theo cây thư mục.
-- Tạo các **Test Runs** cho từng phiên bản release.
-- Ghi nhận trạng thái: `Passed`, `Failed`, `Blocked`, `Retest`.
-
----
-
-## 4. Docker cho QA Test Environment
-
-Chạy ứng dụng và database isolated trong container để đảm bảo môi trường test đồng nhất giữa Local và CI:
+- **TestRail:** Quản lý Repository Test Cases theo cây thư mục, tạo các Test Runs cho từng phiên bản release.
+- **Docker cho QA:** Chạy ứng dụng và database isolated trong container để đảm bảo môi trường test đồng nhất giữa Local và CI:
 ```bash
 docker-compose -f docker-compose.test.yml up -d
 ```

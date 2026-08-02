@@ -1,49 +1,51 @@
-# 01 — Bắt đầu: chuẩn bị trước khi học QA
+# 01 — Bắt đầu & Lộ trình học (Start Here)
 
 ## Mục tiêu
+Nắm được lộ trình học QA toàn diện từ con số 0 đến AI-Powered QA Engineer, hiểu cấu trúc 15 module học theo độ phụ thuộc (dependency), chuẩn bị máy móc, công cụ và mindset học tập.
 
-Sau phần này, bạn có máy và công cụ sẵn sàng, biết cách lưu bằng chứng khi test, và hiểu đường đi từ người mới đến AI-Powered QA Trainee.
+---
 
-![Learning map](diagrams/learning-map.svg)
+## 🗺️ Lộ trình tổng quan (15 Modules theo Dependency)
 
-## Chuẩn bị một lần
+![AI-Powered QA Learning Path](diagrams/learning-map.svg)
 
-| Hạng mục | Việc cần làm | Dùng khi nào |
-| --- | --- | --- |
-| Máy tính | Cập nhật hệ điều hành, có thư mục học tập riêng | Ngay từ đầu |
-| Google Chrome | Cài Chrome, đăng nhập profile cá nhân | Test UI và DevTools |
-| Google Sheets/Excel | Tạo file `QA-Practice` | Viết test case, bug log |
-| VS Code | Cài và biết mở folder/file | Đọc text, học automation sau này |
-| Postman | Cài ứng dụng hoặc dùng web | Học API ở chặng 07 |
-| GitHub | Tạo tài khoản, bật 2FA | Lưu portfolio và automation |
-| Jira/Trello | Tạo một board thử nghiệm | Học quản lý task/bug |
+Lộ trình được sắp xếp theo thứ tự **cái trước là nền móng cho cái sau**:
 
-## Các bước thực hiện
+| Folder | Tên Chặng / Module | Nội dung trọng tâm | Độ ưu tiên |
+|---|---|---|---|
+| **01-start-here** | Bắt đầu & Lộ trình | Tổng quan, môi trường, hướng dẫn học | 🔴 Cao |
+| **02-qa-foundations** | QA Mindset & Tư duy | QA vs QC vs Testing, Verification/Validation, ISTQB 7 principles | 🔴 Cao |
+| **03-test-design-and-techniques** | Kỹ thuật thiết kế test | 6 Kỹ thuật chọn test case (EP, BVA, Decision Table...), Positive/Negative | 🔴 Cao |
+| **04-manual-testing-workflow** | Quy trình Manual Test | Viết Test Case, Bug Report chuẩn, Test Plan, RTM | 🔴 Cao |
+| **05-sdlc-stlc-agile** | Quy trình dự án | SDLC, STLC, Agile/Scrum, Definition of Done (DoD) | 🟡 Trung bình |
+| **06-tools-and-workflow** | Công cụ & DevTools | DevTools cho QA, Jira/Trello workflow, TestRail, Docker | 🟡 Trung bình |
+| **07-web-and-api-basics** | Web & API Fundamentals | SSR vs CSR, Hydration, HTTP Methods, Status Codes, API Checklist | 🔴 Cao |
+| **08-automation-foundations** | Automation Nền tảng | Test Pyramid, Automation Strategy, Playwright Core (Locators, Waits) | 🔴 Cao |
+| **09-ai-powered-qa** | ⭐ AI-Powered QA | Prompt RCFCO, AI sinh test/code, Playwright MCP, Agentic Testing | 🔴 Cao nhất |
+| **10-practice-projects** | Dự án thực hành | Bài tập E2E trên Next.js app, SauceDemo, TodoMVC | 🔴 Cao |
+| **11-advanced-manual-qa** | Manual Nâng cao | Exploratory Testing (SBET), Bug Advocacy, Pair Testing với Dev | 🟡 Trung bình |
+| **12-api-and-database-testing** | API & Database Testing | Playwright Request API, SQL cho QA (data integrity verification) | 🔴 Cao |
+| **13-specialized-testing** | Non-Functional Testing | Performance (k6), Security (OWASP Top 10), Accessibility (AXE), Mobile | 🟡 Trung bình |
+| **14-automation-engineering** | Automation Nâng cao | Page Object Model (POM), Fixtures, Flaky test fix, CI/CD GitHub Actions | 🔴 Cao |
+| **15-career-and-real-projects** | Sự nghiệp & Portfolio | Xây dựng Portfolio, 20+ Câu hỏi phỏng vấn mẫu & Đáp án | 🔴 Cao |
 
-1. Tạo folder `qa-learning` trên máy, bên trong có `evidence`, `test-cases`, `bug-reports`, `notes`.
-2. Tạo Google Sheet với 3 tab: `Test Cases`, `Bug Reports`, `Glossary`.
-3. Cài Chrome và Postman; tạo tài khoản GitHub, Jira hoặc Trello nếu chưa có.
-4. Mở Chrome, vào bất kỳ web demo nào, chụp ảnh màn hình và lưu vào `evidence`.
-5. Chạy `./roadmap.sh`, chọn một mục trong checklist, học và ghi ghi chú bằng ngôn ngữ của bạn.
+---
 
-## Kỹ năng máy tính/internet cần có
+## ⏱️ Kế hoạch học tập đề xuất (10-12 tuần)
 
-- Tìm kiếm Google với từ khóa cụ thể, ví dụ: `HTTP 401 vs 403`.
-- Tải, giải nén, cài phần mềm và biết đường dẫn file đã tải.
-- Sao chép URL, chụp ảnh màn hình, quay video ngắn.
-- Dùng tab, bookmark, lịch sử Chrome và tải file lên ticket.
-- Không gửi mật khẩu, API key hoặc GitHub token vào ticket/chat. Nếu từng lộ token, hãy revoke/rotate ngay.
+- **Tuần 1-2 (Manual Foundations):** Folder `01` → `05`. Nắm vững tư duy QA, 6 kỹ thuật thiết kế test, viết test case & bug report chuẩn.
+- **Tuần 3-4 (Technical Baseline):** Folder `06` → `07`. Đọc DevTools, gọi API Postman/curl, SQL verify data.
+- **Tuần 5-7 (Automation Core):** Folder `08` & `14`. Học Playwright (Locators, Actions, POM pattern, Fixtures).
+- **Tuần 8-9 (AI-Powered QA):** Folder `09`. Sử dụng AI sinh test case, Playwright MCP server, Agentic testing (Planner-Generator-Healer).
+- **Tuần 10-11 (Specialized & CI/CD):** Folder `12` & `13`. k6 performance testing, OWASP security basics, GitHub Actions CI/CD.
+- **Tuần 12 (Portfolio & Demo):** Folder `10` & `15`. Hoàn thiện project demo end-to-end, làm bài test phỏng vấn.
 
-## Checklist hoàn thành
+---
 
-- [ ] Có folder lưu bài thực hành.
-- [ ] Có Chrome, Sheets/Excel, VS Code, Postman.
-- [ ] Có GitHub và Jira/Trello hoặc Trello.
-- [ ] Biết chụp màn hình, quay video, dán link và tải attachment.
-- [ ] Đọc được sơ đồ lộ trình và biết đang học chặng nào.
+## 🔧 Thiết lập môi trường
 
-
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
-
-### Bản đồ Lộ trình Học tập (Learning Path)
-![Bản đồ Lộ trình Học tập (Learning Path)](diagrams/learning-map.svg)
+1. **Node.js** (v18 trở lên) & `npm` / `bun`
+2. **VS Code** với các Extensions: Playwright Test for VS Code, GitLens, Postman / REST Client
+3. **Browser**: Google Chrome, Firefox, Safari (WebKit)
+4. **Git & GitHub account** (đã connect SSH hoặc PAT)
+5. **AI Tools**: Claude Code / Gemini CLI, Cursor, ChatGPT/Claude web interface

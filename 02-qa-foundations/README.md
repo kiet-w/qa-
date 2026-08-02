@@ -5,21 +5,9 @@ Hiểu bản chất QA là gì, tư duy khác developer ra sao, phân biệt Ver
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
-
-### Mối quan hệ QA ⊃ QC ⊃ Testing
-![Mối quan hệ QA ⊃ QC ⊃ Testing](diagrams/qa-qc-testing.svg)
-
-### Ba phương pháp Testing (Black box, Gray box, White box)
-![Ba phương pháp Testing (Black box, Gray box, White box)](diagrams/testing-approaches.svg)
-
-### Vòng đời của Bug (Bug Life Cycle)
-![Vòng đời của Bug (Bug Life Cycle)](diagrams/bug-lifecycle.svg)
-
-### Ma trận Severity vs Priority
-![Ma trận Severity vs Priority](diagrams/severity-priority.svg)
-
 ## 1. QA vs QC vs Testing
+
+![QA ⊃ QC ⊃ Testing](diagrams/qa-qc-testing.svg)
 
 | Khái niệm | Định nghĩa & Mục tiêu | Tính chất | Ví dụ |
 |---|---|---|---|
@@ -39,21 +27,15 @@ Dev khi code feature "Form đăng ký" nghĩ:
 QA khi test cùng feature nghĩ:
 > "Nếu user nhập toàn space? Nếu email có dấu '+'? Nếu password đúng 8 ký tự biên? Nếu click submit 2 lần liên tiếp? Nếu mất mạng giữa chừng?"
 
-### 5 Câu hỏi QA luôn tự hỏi:
-1. Input nào user có thể nhập mà dev chưa nghĩ tới? (Edge cases)
-2. Chuyện gì xảy ra ở ranh giới? (Boundary values: min, max, empty, overflow)
-3. Thứ tự thao tác nào có thể gây lỗi? (Sequence: back button, double submit, refresh)
-4. Trong điều kiện môi trường nào hệ thống sẽ fail? (Slow network, low memory)
-5. Requirement nào đang mơ hồ? (Ambiguous requirement gap)
-
 ---
 
-## 3. Black Box, White Box & Gray Box Testing
+## 3. Ba testing approach (What information does QA use?)
 
-- **Black Box:** Không biết code bên trong, chỉ test Input ➔ Output từ góc nhìn User.
-- **White Box:** Nhìn vào cấu trúc code, branches, loops để thiết kế test cases (Unit test).
-- **Gray Box:** Biết 1 phần kiến trúc (API spec, DB schema) nhưng test từ bên ngoài.
-  - *Dev background advantage:* Bạn làm Gray Box testing cực kỳ tự nhiên vì hiểu cả frontend, backend lẫn database.
+![Testing Approaches](diagrams/testing-approaches.svg)
+
+- **Black box:** chỉ nhìn input và output. Ví dụ nhập username/password, kiểm tra điều hướng và thông báo lỗi.
+- **White box:** nhìn vào cấu trúc code, nhánh điều kiện, unit test, coverage.
+- **Gray box:** biết một phần API, database, log hoặc kiến trúc nhưng vẫn test qua UI/API.
 
 ---
 
@@ -64,7 +46,7 @@ QA khi test cùng feature nghĩ:
 
 ---
 
-## 5. 🆕 ISTQB 7 Testing Principles (7 Nguyên Tắc Vàng)
+## 5. ISTQB 7 Testing Principles (7 Nguyên Tắc Vàng)
 
 1. **Testing shows the presence of defects, not their absence:** Test chỉ chứng minh có lỗi, không chứng minh "hết lỗi".
 2. **Exhaustive testing is impossible:** Không thể test hết mọi tổ hợp input ➔ Phải chọn test thông minh (Risk-based).
@@ -76,26 +58,21 @@ QA khi test cùng feature nghĩ:
 
 ---
 
-## 6. 🆕 Bug Life Cycle & Severity vs Priority
+## 6. Bug Life Cycle & Severity vs Priority
 
-### Bug Life Cycle
-```
-New ➔ Open/Assigned ➔ In Progress ➔ Fixed ➔ Retest ➔ Verified (Closed) ✅
-                                                 └➔ Reopened 🔄 (nếu lỗi còn)
-                                └➔ Rejected / Deferred / Duplicate ❌
-```
+### Bug Life Cycle Flow
+![Bug Life Cycle](diagrams/bug-lifecycle.svg)
 
 ### Severity (Mức độ kỹ thuật) vs Priority (Mức độ ưu tiên)
+![Severity vs Priority](diagrams/severity-priority.svg)
+
 - **Severity (QA đánh giá):** Critical (crash/data loss), Major (feature chính hỏng), Minor (lỗi phụ có workaround), Trivial (cosmetic).
 - **Priority (PM/PO quyết định):** Urgent (sửa ngay), High (sửa trong sprint), Medium, Low.
-- 💡 **Ví dụ kinh điển:**
-  - *High Severity + Low Priority:* App crash khi nhập emoji vào field ít dùng.
-  - *Low Severity + High Priority:* Logo công ty trên trang chủ bị lệch/sai màu.
 
 ---
 
 ## Checklist & Bài tập
-- [ ] Phân biệt QA vs QC vs Testing bằng ví dụ thực tế.
+- [ ] Giải thích QA vs QC vs Testing bằng ví dụ thực tế.
 - [ ] Giải thích 7 nguyên tắc ISTQB.
 - [ ] Phân biệt Severity vs Priority và cho 2 ví dụ minh họa.
 - [ ] Bài tập: Viết 5 câu hỏi "Nếu... thì sao?" cho tính năng Quên mật khẩu.

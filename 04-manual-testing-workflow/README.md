@@ -5,20 +5,13 @@ Thành thạo kỹ năng viết Test Plan, viết Test Case chuẩn atomic, vi�
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+## 1. Manual Test Cycle
 
-### Quy trình Manual Test Cycle
-![Quy trình Manual Test Cycle](diagrams/manual-test-cycle.svg)
+![Manual Test Cycle](diagrams/manual-test-cycle.svg)
 
-### Vòng đời Defect trong Quy trình Test
-![Vòng đời Defect trong Quy trình Test](diagrams/defect-lifecycle.svg)
+---
 
-### Requirement Traceability Matrix (RTM)
-![Requirement Traceability Matrix (RTM)](diagrams/rtm-matrix.svg)
-
-
-
-## 1. Cấu trúc Test Case chuẩn
+## 2. Cấu trúc Test Case chuẩn
 
 | Field | Description | Example |
 |---|---|---|
@@ -32,9 +25,9 @@ Thành thạo kỹ năng viết Test Plan, viết Test Case chuẩn atomic, vi�
 
 ---
 
-## 2. Quy chuẩn viết Bug Report chuyên nghiệp
+## 3. Quy chuẩn viết Bug Report & Defect Lifecycle
 
-Một Bug Report tốt giúp dev sửa lỗi nhanh chóng mà không cần hỏi lại.
+![Defect Lifecycle](diagrams/defect-lifecycle.svg)
 
 ```markdown
 ### [Auth] Error 500 khi đăng nhập bằng Google OAuth với email có dấu '+'
@@ -51,33 +44,13 @@ Một Bug Report tốt giúp dev sửa lỗi nhanh chóng mà không cần hỏi
 
 **Expected Result:** Đăng nhập thành công, điều hướng về `/dashboard`
 **Actual Result:** Trang trắng, Console hiện `Error 500: Internal Server Error`. Network log đính kèm.
-
-**Attachments:**
-- screenshot_error.png
-- network_payload.json
 ```
-
----
-
-## 3. Test Plan cơ bản (Kế hoạch kiểm thử)
-
-Nội dung chính của một Test Plan:
-1. **Scope:** In-scope (tính năng test) và Out-of-scope (tính năng chưa test).
-2. **Strategy:** Manual test cho new feature, Automation cho regression test.
-3. **Entry Criteria:** Điều kiện bắt đầu test (Code deployed staging, Smoke test PASS).
-4. **Exit Criteria:** Điều kiện kết thúc test (100% Critical cases PASS, 0 open Critical bugs).
-5. **Resource & Schedule:** Phân công nhân sự và mốc thời gian.
 
 ---
 
 ## 4. Requirement Traceability Matrix (RTM)
 
-Bảng ma trận truy xuất nguồn gốc giúp đảm bảo **100% Requirement đều có Test Case bao phủ**:
-
-| Requirement ID | Description | Test Case IDs | Execution Status | Defect ID |
-|---|---|---|---|---|
-| `REQ_AUTH_01` | Đăng nhập bằng Email | `TC_AUTH_001`, `TC_AUTH_002` | PASS | - |
-| `REQ_AUTH_02` | Quên mật khẩu qua Email | `TC_AUTH_010` | FAIL | `BUG_045` |
+![Requirement Traceability Matrix](diagrams/rtm-matrix.svg)
 
 ---
 

@@ -5,45 +5,21 @@ Hiểu rõ vòng đời phát triển phần mềm (SDLC), vòng đời kiểm t
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+## 1. SDLC vs STLC Life Cycle
 
-### SDLC vs STLC Life Cycle
-![SDLC vs STLC Life Cycle](diagrams/sdlc-stlc.svg)
-
-### Agile Sprint Flow & Vai trò của QA
-![Agile Sprint Flow & Vai trò của QA](diagrams/agile-sprint.svg)
-
-### Scrum Feedback Loop & Definition of Done
-![Scrum Feedback Loop & Definition of Done](diagrams/scrum-feedback-loop.svg)
-
-## 1. SDLC Models & Vị trí của QA
-
-- **Waterfall:** QA chỉ vào test ở đoạn cuối ➔ Rủi ro phát hiện lỗi muộn, chi phí sửa cực đắt.
-- **V-Model:** Mỗi pha Dev có 1 pha Test tương ứng (Requirement ➔ Acceptance Test, Architecture ➔ Integration Test, Code ➔ Unit Test).
-- **Agile/Scrum:** Dev & QA làm việc song song trong các Sprint (1-2 tuần). QA tham gia từ khâu grooming/planning (Shift-Left Testing).
+![SDLC vs STLC](diagrams/sdlc-stlc.svg)
 
 ---
 
-## 2. STLC (Software Testing Life Cycle)
+## 2. Agile Sprint Flow & Vai trò của QA
 
-```
-Requirement Analysis ➔ Test Planning ➔ Test Case Development ➔ Environment Setup ➔ Test Execution ➔ Test Cycle Closure
-```
+![Agile Sprint Flow](diagrams/agile-sprint.svg)
 
 ---
 
-## 3. QA trong Agile/Scrum Ceremonies
+## 3. Scrum Feedback Loop & Definition of Done (DoD)
 
-| Ceremony | Vai trò & Hoạt động của QA |
-|---|---|
-| **Sprint Planning / Grooming** | Đọc Requirement/User Story, hỏi các câu hỏi Edge cases làm rõ spec, estimate effort test |
-| **Daily Standup** | Báo cáo: Hôm qua test gì, hôm nay test gì, có Blocker nào không |
-| **Sprint Review / Demo** | Báo cáo tình hình chất lượng, số lượng bug, demo tính năng đã test |
-| **Retrospective** | Đóng góp ý kiến cải tiến quy trình release, giảm thiểu bug tái diễn |
-
----
-
-## 4. Definition of Done (DoD)
+![Scrum Feedback Loop](diagrams/scrum-feedback-loop.svg)
 
 Một User Story chỉ được xem là **DONE** khi:
 - [x] Code đã được Code Review.

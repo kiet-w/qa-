@@ -5,14 +5,13 @@ Sử dụng Playwright Request API để test API tự động và viết các c
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+## 1. Luồng Kiểm Thử Data Integrity (UI ➔ API ➔ Database)
 
-### Luồng kiểm thử Data Integrity từ UI ➔ API ➔ Database
-![Luồng kiểm thử Data Integrity từ UI ➔ API ➔ Database](diagrams/api-db-testing-flow.svg)
+![API and Database Testing Flow](diagrams/api-db-testing-flow.svg)
 
+---
 
-
-## 1. Playwright API Testing (`request`)
+## 2. Playwright API Testing (`request`)
 
 ```typescript
 import { test, expect } from '@playwright/test';
@@ -27,7 +26,7 @@ test('GET /api/products returns correct list', async ({ request }) => {
 
 ---
 
-## 2. SQL Queries cho QA
+## 3. SQL Queries cho QA Verification
 
 ```sql
 -- 1. Check user vừa đăng ký trong DB

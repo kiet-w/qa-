@@ -5,43 +5,22 @@ Nắm vững cơ chế Web (SSR vs CSR, Hydration, Caching), HTTP Methods, Statu
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
+## 1. Web Architecture: SSR vs CSR
 
-### Kiến trúc Web: SSR vs CSR qua góc nhìn QA
-![Kiến trúc Web: SSR vs CSR qua góc nhìn QA](diagrams/ssr-csr.svg)
+![SSR vs CSR Architecture](diagrams/ssr-csr.svg)
 
-### Luồng HTTP Request & Response
-![Luồng HTTP Request & Response](diagrams/http-request-response.svg)
-
-### HTTP Status Codes Cheat Sheet cho QA
-![HTTP Status Codes Cheat Sheet cho QA](diagrams/http-status-codes.svg)
-
-## 1. Web Architecture: SSR vs CSR & Caching
-
-- **SSR (Server-Side Rendering - Next.js):** HTML được render từ server. QA cần chú ý lỗi **Hydration Mismatch** (HTML server trả về khác với client render).
-- **CSR (Client-Side Rendering - React):** HTML rỗng, JS render UI. QA cần chú ý các trạng thái **Loading/Skeleton** và các lỗi async timing.
-- **Cache Bugs:** Dữ liệu đã update trong DB nhưng UI vẫn hiển thị cũ do Browser/CDN Cache. (Test bằng Incognito / Hard Refresh Ctrl+Shift+R).
+- **SSR (Next.js):** HTML được render từ server. QA cần chú ý lỗi **Hydration Mismatch**.
+- **CSR (React SPA):** HTML rỗng, JS render UI. QA cần chú ý các trạng thái **Loading/Skeleton**.
 
 ---
 
-## 2. HTTP Methods & Status Codes
+## 2. HTTP Request / Response & Status Codes
 
-### HTTP Methods
-- `GET`: Lấy dữ liệu (Safe, Idempotent).
-- `POST`: Tạo mới dữ liệu.
-- `PUT`: Cập nhật toàn bộ object.
-- `PATCH`: Cập nhật 1 phần object.
-- `DELETE`: Xóa dữ liệu.
+### HTTP Request & Response Lifecycle
+![HTTP Request Response](diagrams/http-request-response.svg)
 
-### Status Codes chuẩn QA
-- `200 OK` / `201 Created` / `204 No Content` ➔ Success.
-- `400 Bad Request` ➔ Input invalid / Thiếu field.
-- `401 Unauthorized` ➔ Chưa đăng nhập / Token hết hạn.
-- `403 Forbidden` ➔ Đã đăng nhập nhưng không có quyền.
-- `404 Not Found` ➔ Resource không tồn tại.
-- `422 Unprocessable Entity` ➔ Validation fail.
-- `429 Too Many Requests` ➔ Quá tải rate limit.
-- `500 Internal Server Error` ➔ Server crash / Unhandled exception (**Luôn là Bug**).
+### HTTP Status Codes Cheat Sheet cho QA
+![HTTP Status Codes](diagrams/http-status-codes.svg)
 
 ---
 

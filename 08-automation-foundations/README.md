@@ -5,19 +5,9 @@ Hiểu mô hình Kim tự tháp Automation (Test Automation Pyramid), chiến l�
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
-
-### Kim tự tháp Automation Testing (Test Automation Pyramid)
-![Kim tự tháp Automation Testing (Test Automation Pyramid)](diagrams/test-pyramid.svg)
-
 ## 1. Test Automation Pyramid
 
-```
-        /  UI/E2E Tests  \        10% (Chậm, đắt, dễ flaky -> Viết ít)
-       / Integration Tests \      20% (Test API / DB interaction)
-      /    Unit Tests       \     70% (Nhanh, rẻ, stable -> Dev viết nhiều nhất)
-     -------------------------
-```
+![Test Automation Pyramid](diagrams/test-pyramid.svg)
 
 ### Cái gì NÊN vs KHÔNG NÊN Automate?
 - **NÊN:** Regression test suite, Smoke test, Data-driven tests, API integration tests.
@@ -44,27 +34,11 @@ page.getByText('Welcome back')
 
 // 3. Test ID
 page.getByTestId('submit-btn')
-
-// ❌ Tránh XPath / CSS Selector quá dài (dễ bị broken khi UI đổi)
 ```
 
 ---
 
-## 3. Actions & Assertions
-
-```typescript
-// Actions
-await page.getByRole('textbox', { name: 'Email' }).fill('user@test.com');
-await page.getByRole('button', { name: 'Login' }).click();
-
-// Assertions (Auto-waiting)
-await expect(page).toHaveURL('/dashboard');
-await expect(page.getByRole('alert')).toHaveText('Login successful');
-```
-
----
-
-## 4. Smart Waits (Chống Flaky Test)
+## 3. Smart Waits (Chống Flaky Test)
 
 - Playwright tự động đợi element **visible, enabled, stable** trước khi click.
 - ❌ KHÔNG dùng hard wait: `await page.waitForTimeout(3000)`

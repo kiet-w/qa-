@@ -5,34 +5,15 @@ Làm chủ mô hình Page Object Model (POM), Quản lý Fixtures, Xử lý Flak
 
 ---
 
-## 📊 Sơ đồ trực quan (Diagrams & Lifecycles)
-
-### Kiến trúc Page Object Model (POM) Pattern
-![Kiến trúc Page Object Model (POM) Pattern](diagrams/pom-architecture.svg)
-
-### Workflow Tự động hóa CI/CD với GitHub Actions
-![Workflow Tự động hóa CI/CD với GitHub Actions](diagrams/cicd-pipeline.svg)
-
 ## 1. Page Object Model (POM) Pattern
 
-```typescript
-// pages/login.page.ts
-export class LoginPage {
-  constructor(private page: Page) {}
-  readonly emailInput = this.page.getByLabel('Email');
-  readonly loginBtn = this.page.getByRole('button', { name: 'Login' });
-
-  async login(email: string, pass: string) {
-    await this.emailInput.fill(email);
-    await this.page.getByLabel('Password').fill(pass);
-    await this.loginBtn.click();
-  }
-}
-```
+![Page Object Model Architecture](diagrams/pom-architecture.svg)
 
 ---
 
 ## 2. CI/CD GitHub Actions Workflow
+
+![CI/CD Automation Pipeline](diagrams/cicd-pipeline.svg)
 
 ```yaml
 name: Playwright Tests
