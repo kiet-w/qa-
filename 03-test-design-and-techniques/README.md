@@ -1,60 +1,81 @@
-# 03 — Test Design & Techniques: chọn đúng thứ cần test
+# 03 — Test Design & Techniques: Kỹ Thuật Thiết Kế Test
 
 ## Mục tiêu
+Nắm vững 6 kỹ thuật thiết kế test case chuẩn quốc tế (Black-box Test Design Techniques) giúp tối ưu hóa số lượng test case mà vẫn đảm bảo độ bao phủ (coverage) cao nhất.
 
-Bạn hiểu các loại test thường gặp, phân biệt Smoke/Sanity/Regression và biết ưu tiên khi không đủ thời gian test tất cả.
+---
 
-![Risk-based prioritization](diagrams/risk-prioritization.svg)
+## 1. Equivalence Partitioning (EP - Phân vùng tương đương)
 
-## 1. Phân loại nhanh các loại test
+Chia tập dữ liệu đầu vào thành các nhóm (partitions) mà hệ thống xử lý giống nhau. Chỉ cần chọn 1 giá trị đại diện cho mỗi nhóm.
 
-| Nhóm | Mục đích | Ví dụ |
-| --- | --- | --- |
-| Functional | Tính năng có đúng theo rule không? | Add to Cart cập nhật đúng số lượng |
-| Non-functional | Chất lượng sử dụng/vận hành | Tốc độ, bảo mật, accessibility |
-| Unit | Một hàm/module nhỏ | Hàm tính tổng tiền |
-| Integration | Nhiều thành phần ghép với nhau | UI → API → database |
-| UAT | Business/user chấp nhận sản phẩm | PO xác nhận flow mua hàng |
-| Compatibility | Nhiều browser/device/OS | Safari mobile, Chrome desktop |
+**Ví dụ:** Field "Tuổi" chấp nhận 18 đến 65.
+- Partition 1 (Invalid): `< 18` ➔ Đại diện: `15`
+- Partition 2 (Valid): `18 - 65` ➔ Đại diện: `30`
+- Partition 3 (Invalid): `> 65` ➔ Đại diện: `70`
+➔ Giảm từ hàng nghìn test case xuống 3 test cases đại diện.
 
-### Các loại test dễ nhầm
+---
 
-- **Smoke:** kiểm tra nhanh các flow sống còn của build mới: mở app, login, thao tác chính. Nếu fail, dừng test sâu và báo build không ổn.
-- **Sanity:** kiểm tra hẹp sau một thay đổi/fix nhỏ, tập trung vào vùng vừa sửa và ảnh hưởng gần đó.
-- **Regression:** chạy lại các test cũ liên quan sau thay đổi để xem chức năng đang tốt có bị phá không.
-- **Exploratory:** test có mục tiêu nhưng không bị giới hạn bởi script cố định; ghi lại note để biến phát hiện tốt thành test case sau này.
+## 2. Boundary Value Analysis (BVA - Phân tích giá trị biên)
 
-### Non-functional cần biết
+Lỗi phần mềm thường tập trung ở BIÊN của ranh giới các vùng tương đương.
+- Công thức chọn biên: **min-1, min, min+1, max-1, max, max+1**
 
-- **Performance/Load/Stress:** tốc độ, tải dự kiến, và hành vi khi vượt tải.
-- **Security:** authentication, authorization, data exposure, XSS, SQL injection, CSRF.
-- **Accessibility:** keyboard navigation, focus, contrast, label cho screen reader, thông báo lỗi.
-- **Usability:** user có hiểu và hoàn thành việc dễ dàng không.
+**Ví dụ:** Field "Tuổi" (18 - 65):
+- Biên dưới: `17` (Invalid), `18` (Valid), `19` (Valid)
+- Biên trên: `64` (Valid), `65` (Valid), `66` (Invalid)
+➔ 6 test values tập trung bắt các lỗi `>` thành `>=` hoặc `<` thành `<=`.
 
-## 2. Prioritize theo rủi ro
+---
 
-Ưu tiên không chỉ là “cái dễ test trước”. Đánh giá từng vùng theo:
+## 3. Decision Table Testing (Bảng quyết định)
 
-1. **Impact:** nếu fail thì mất tiền, mất dữ liệu, không login được hoặc lộ dữ liệu?
-2. **Likelihood:** code mới, phức tạp, từng có bug, tích hợp nhiều hệ thống hoặc requirement mơ hồ?
-3. **Reach/Frequency:** bao nhiêu người dùng, dùng bao nhiêu lần?
-4. **Detectability:** lỗi có dễ bị phát hiện trước khi user gặp không?
+Dùng khi kết quả phụ thuộc vào NHIỀU ĐIỀU KIỆN kết hợp.
 
-Ví dụ: Auth, payment và quyền truy cập thường Impact cao; vì vậy chạy trước phần đổi màu nút hoặc text phụ.
+**Ví dụ:** Tính năng Giảm giá đơn hàng:
 
-## 3. Quy trình thiết kế test cho một feature
+| Condition / Action | Rule 1 | Rule 2 | Rule 3 | Rule 4 |
+|---|---|---|---|---|
+| Là thành viên VIP? | True | True | False | False |
+| Đơn hàng > 500k? | True | False | True | False |
+| **Giảm giá (%)** | **20%** | **10%** | **5%** | **0%** |
 
-1. Chuyển requirement thành danh sách rule có thể kiểm tra.
-2. Vẽ flow happy path: user bắt đầu ở đâu, thao tác gì, thành công ở đâu.
-3. Tìm negative path: thiếu quyền, input sai, trạng thái không hợp lệ.
-4. Tìm edge case: min/max length, số lượng 0/1/lớn, double click, refresh, network lỗi, nhiều tab.
-5. Gắn risk và priority cho từng nhóm test.
-6. Chọn mức test phù hợp: smoke trước, sanity sau fix, regression trước release.
-7. Viết test case có expected result rõ; xem chặng 04 để chạy và report.
+Mỗi cột Rule tương ứng 1 Test Case chuẩn xác.
 
-## Checklist
+---
 
-- [ ] Nêu được sự khác nhau giữa Smoke, Sanity, Regression.
-- [ ] Có risk list cho Login hoặc Add to Cart.
-- [ ] Chọn 5 test đầu tiên nếu chỉ có 30 phút trước release.
-- [ ] Viết 3 exploratory charter, ví dụ: “Khám phá cart khi mạng chập chờn trong 20 phút”.
+## 4. State Transition Testing (Chuyển đổi trạng thái)
+
+Dùng cho các đối tượng có vòng đời và trạng thái phức tạp (ví dụ: Đơn hàng, Vé máy bay, Tài khoản).
+
+```
+[Draft] ──submit──▶ [Submitted] ──approve──▶ [Approved] ──ship──▶ [Delivered]
+                          │
+                          └──reject──▶ [Rejected]
+```
+- **Test:** Tất cả các luồng chuyển trạng thái hợp lệ.
+- **Negative Test:** Thử thực hiện chuyển trạng thái KHÔNG hợp lệ (Ví dụ: Từ `Draft` nhảy thẳng sang `Delivered` ➔ Phải báo lỗi).
+
+---
+
+## 5. Pairwise Testing (Combinatorial Testing)
+
+Khi có quá nhiều biến số kết hợp (OS x Browser x Resolution x Language), Pairwise giúp giảm 80-90% số lượng test case bằng cách đảm bảo mọi CẶP biến đều được test ít nhất 1 lần.
+- Tool hỗ trợ: PICT (Microsoft), AllPairs.
+
+---
+
+## 6. Error Guessing & Negative Testing
+
+- **Error Guessing:** Dùng trực giác và kinh nghiệm để đoán chỗ hay lỗi (Nhập emoji, copy-paste trailing space, double click submit, SQL injection string `' OR '1'='1`).
+- **Positive vs Negative Testing:**
+  - Positive: Input đúng ➔ Kỳ vọng kết quả đúng (~40% test cases).
+  - Negative: Input sai/bất thường ➔ Kỳ vọng hệ thống xử lý mượt mà, báo lỗi rõ ràng (~60% test cases).
+
+---
+
+## Checklist & Bài tập
+- [ ] Áp dụng EP và BVA cho field Password (8 - 20 ký tự, chứa ít nhất 1 chữ hoa, 1 số).
+- [ ] Lập Decision Table cho tính năng áp dụng mã Voucher.
+- [ ] Vẽ State Transition Diagram cho quy trình Đặt hàng online.

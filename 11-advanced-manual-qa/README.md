@@ -1,29 +1,22 @@
-# 11 — Advanced Manual QA
-
-## Khi nào bắt đầu?
-
-Sau khi bạn tự viết được test case/bug report rõ ràng, biết dùng DevTools cơ bản, và đã hoàn thành ít nhất một project ở chặng 10.
+# 11 — Advanced Manual QA: Kỹ Thuật Manual QA Nâng Cao
 
 ## Mục tiêu
+Làm chủ kỹ thuật Session-Based Exploratory Testing (SBET), kỹ năng Bug Advocacy (thuyết phục Dev/PM fix bug), và Pair Testing với Developer.
 
-Nâng từ “chạy test theo case” thành người biết thiết kế coverage, quản lý rủi ro release và khám phá lỗi có hệ thống.
+---
 
-## Backlog học theo thứ tự
+## 1. Session-Based Exploratory Testing (SBET)
 
-1. **Test design techniques:** equivalence partitioning, boundary value analysis, decision table, state transition, pairwise testing.
-2. **Requirement review:** phát hiện ambiguity, conflict, missing acceptance criteria trước khi code.
-3. **Traceability:** liên kết requirement → test case → test run → bug → release.
-4. **Exploratory testing sâu:** charter, timebox, note-taking, debrief, biến phát hiện thành regression cases.
-5. **Release testing:** entry/exit criteria, smoke suite, risk-based regression, go/no-go recommendation.
-6. **Cross-browser & responsive:** browser matrix, device/viewport matrix, compatibility evidence.
-7. **Localization/time/date:** timezone, currency, language, encoding, daylight saving khi project cần.
+Exploratory Testing không phải là test bừa bãi. SBET quản lý theo quy trình:
+1. **Charter:** Mục tiêu phiên test (VD: "Khám phá luồng thanh toán khi mất kết nối mạng").
+2. **Time-box:** Khung thời gian cố định (60 - 90 phút).
+3. **Session Log:** Ghi chép chi tiết các bước, phát hiện, câu hỏi và lỗi.
+4. **Debrief:** Họp ngắn với Team để review kết quả.
 
-## Folder gợi ý khi mở rộng
+---
 
-Tạo từng folder con khi bắt đầu học thật, ví dụ `01-boundary-and-equivalence/`, `02-decision-tables/`, `03-exploratory-charters/`. Mỗi folder nên có `README.md`, `examples/`, `exercises/` và `evidence/`.
+## 2. Bug Advocacy (Kỹ năng thuyết phục sửa bug)
 
-## Definition of done
-
-- [ ] Có test design cho một feature bằng ít nhất 3 kỹ thuật.
-- [ ] Có exploratory charter và debrief note.
-- [ ] Có release summary nêu rõ risk còn lại, không chỉ số lượng Pass/Fail.
+Để PM/Dev đồng ý fix một bug khó:
+- Cung cấp dữ liệu tác động: "80% người dùng dùng Chrome trên Mobile bị ảnh hưởng bởi lỗi này ➔ Gây thất thoát doanh thu".
+- Gửi kèm Video / Network trace rõ ràng.

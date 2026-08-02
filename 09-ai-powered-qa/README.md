@@ -1,69 +1,71 @@
-# 09 — AI-Powered QA: dùng AI có kiểm chứng
+# 09 — AI-Powered QA: Ứng Dụng AI Trong Kiểm Thử (Trọng Tâm)
 
 ## Mục tiêu
+Làm chủ việc ứng dụng AI/LLM trong quy trình QA: Prompt Engineering (Framework RCFCO), AI sinh Test Cases & Automation Code, sử dụng Microsoft Playwright MCP server, xây dựng mô hình Agentic Testing (Planner-Generator-Healer), và nắm rõ giới hạn của AI.
 
-Bạn dùng AI để tăng tốc test planning, test case, exploratory ideas, bug report và log analysis; đồng thời biết cách review để AI không làm sai business logic.
+---
 
-![AI review loop](diagrams/ai-qa-review-loop.svg)
+## 1. Prompt Engineering Framework cho QA (RCFCO)
 
-## Nguyên tắc không thay đổi
+Để AI cho ra Test Cases / Code chất lượng, dùng công thức **RCFCO**:
+- **Role:** Vai trò của AI (Senior QA Engineer).
+- **Context:** Ngữ cảnh feature, User story, Acceptance Criteria, Business rules.
+- **Format:** Định dạng output (Bảng Markdown, JSON, Gherkin, Code TypeScript).
+- **Constraint:** Ràng buộc (Platform, Browser, Data limits).
+- **Output:** Phạm vi (Focus on Edge cases, Security, Boundary values).
 
-1. Requirement đã xác nhận và ứng dụng thật là nguồn quyết định; AI không phải nguồn quyết định cuối.
-2. AI output là **draft**, không phải deliverable hoàn chỉnh.
-3. Không gửi secret, token, mật khẩu, dữ liệu khách hàng hoặc source code nhạy cảm vào AI không được công ty phê duyệt.
-4. Không tin severity/priority AI tự gán nếu không kiểm tra impact và quy ước team.
-5. Lưu prompt/output quan trọng như một note học tập, nhưng không copy nguyên văn khi chưa review.
-
-## Quy trình dùng AI cho một feature
-
-### Bước 1 — Chuẩn bị context tối thiểu
-
-Cung cấp: user story, acceptance criteria, user role, trạng thái/giới hạn dữ liệu, platform, phần không nằm trong scope và format output. Xóa dữ liệu nhạy cảm trước khi gửi.
-
-### Bước 2 — Yêu cầu AI tạo bản nháp
-
-Ví dụ prompt:
-
-```text
-You are assisting a manual QA tester. Create a DRAFT test design only.
-
-Feature: Add one or more products to cart.
-Rules: cart badge increases by the number of distinct added products;
-out-of-stock items cannot be added; cart persists after refresh for logged-in users.
-Scope: web UI on Chrome desktop.
-
-Return positive, negative, and edge scenarios in a table with:
-ID, title, preconditions, steps, test data, expected result, risk, priority.
-Flag assumptions instead of inventing missing rules.
+```markdown
+**Prompt Mẫu:**
+Role: Senior QA Engineer chuyên về Web E-commerce.
+Context: Feature "Áp dụng mã giảm giá tại Checkout". Giá trị đơn hàng tối thiểu 200k. Mã hết hạn hoặc hết lượt sẽ bị từ chối.
+Task: Sinh 10 test cases bao gồm Happy path, Negative cases, Boundary values.
+Format: Bảng Markdown gồm (Test ID | Title | Type | Steps | Expected Result | Priority).
+Constraint: Cung cấp ít nhất 3 security edge cases (SQL injection, Tampered payload).
 ```
 
-### Bước 3 — Review như một QA
+---
 
-1. Xóa test không thuộc feature hoặc dựa trên rule không có thật.
-2. So từng expected result với acceptance criteria/oracle.
-3. Thêm business rule, role, dữ liệu, integration và history mà AI không biết.
-4. Kiểm tra đủ positive, negative, boundary, state transition, error/recovery, security/accessibility khi phù hợp.
-5. Sắp xếp priority theo impact/likelihood thật, không theo câu chữ AI.
-6. Chạy test trên app và ghi actual/evidence; không đánh Pass chỉ vì AI nói hợp lý.
+## 2. Playwright MCP (Model Context Protocol) Server
 
-### Bước 4 — Dùng AI ở các điểm phù hợp
+Microsoft cung cấp **Playwright MCP Server** cho phép các AI Agent (Claude Code, Cursor, Gemini CLI) trực tiếp điều khiển trình duyệt thật thông qua **Accessibility Tree** (dạng Role/Name/State) thay vì Screenshot.
 
-| Công việc | AI có thể hỗ trợ | QA phải xác minh |
-| --- | --- | --- |
-| Test planning | Brainstorm risk/dependency | Scope và risk theo business |
-| Test cases | Draft cases từ spec | Expected result, missing cases |
-| Exploratory | Gợi ý edge cases/charters | Tính thực tế trên app |
-| Bug report | Chuẩn hóa ghi chú thô | Steps, actual, severity, secrets |
-| Logs/network | Giải thích dấu hiệu/error | Evidence và nguyên nhân gốc |
-| Automation | Skeleton test/locator idea | Selector, assertion, flakiness |
+### Setup MCP Config:
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
+```
 
-## Câu trả lời phỏng vấn mẫu
+---
 
-> “Tôi dùng AI để brainstorm rủi ro, tạo bản nháp test case, chuẩn hóa bug report và hỗ trợ đọc log. Trước khi dùng kết quả, tôi đối chiếu từng expected result với acceptance criteria, thêm business context mà AI không biết, chạy trên ứng dụng thật và lưu evidence. Vì vậy AI giúp tôi nhanh hơn nhưng không thay thế trách nhiệm QA.”
+## 3. Mô hình 3-Agentic Testing Architecture
 
-## Checklist
+```
+┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+│   PLANNER   │ ──▶ │  GENERATOR   │ ──▶ │   HEALER    │
+│ (Lên KH Test)│     │(Sinh Code UI)│     │(Tự Sửa Test)│
+└─────────────┘     └──────────────┘     └─────────────┘
+```
 
-- [ ] Viết prompt có scope, rules, platform và output format.
-- [ ] Ghi rõ assumption AI đưa ra và xác nhận/xóa nó.
-- [ ] Review ít nhất 10 AI-generated test cases trên app demo.
-- [ ] Không đưa secret/data nhạy cảm vào prompt.
+1. **Planner Agent:** Đọc PRD/Requirement ➔ Sinh ra Test Strategy & Matrix scenarios.
+2. **Generator Agent:** Đọc Accessibility Tree của App ➔ Sinh Playwright Test Code chuẩn POM.
+3. **Healer Agent (Self-Healing):** Chạy test, khi Selector bị lỗi do UI đổi ➔ Tự đọc DOM snapshot mới và cập nhật lại Code.
+
+---
+
+## 4. Review Checklist cho AI-Generated Code & AI Limitations
+
+### Review Checklist:
+- [ ] Selector AI chọn có thực sự tồn tại và stable không?
+- [ ] Assertion có đúng logic nghiệp vụ không?
+- [ ] AI có lỡ dùng `waitForTimeout` (anti-pattern) không?
+
+### Giới hạn của AI trong QA:
+- AI không hiểu business logic ngầm của công ty ➔ Cần Human QA cung cấp context đầy đủ.
+- AI có thể hallucinate API endpoints / Selectors ➔ **Bắt buộc phải chạy test thật để kiểm chứng**.
+- Exploratory Testing (Trực giác & Khám phá lỗi ngoài kịch bản) vẫn là thế mạnh tuyệt đối của con người.

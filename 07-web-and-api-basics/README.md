@@ -1,55 +1,43 @@
-# 07 — Web & API Basics: hiểu ứng dụng đang giao tiếp ra sao
+# 07 — Web & API Fundamentals: Kiến Thức Web & API cho QA
 
 ## Mục tiêu
+Nắm vững cơ chế Web (SSR vs CSR, Hydration, Caching), HTTP Methods, Status Codes, và danh sách kiểm tra (Checklist) khi test API.
 
-Bạn đọc được HTML/CSS/JS ở mức cơ bản, hiểu HTTP request/response và gửi được request đơn giản bằng Postman.
+---
 
-![HTTP request response](diagrams/http-request-response.svg)
+## 1. Web Architecture: SSR vs CSR & Caching
 
-## 1. Web cơ bản, học vừa đủ cho QA
+- **SSR (Server-Side Rendering - Next.js):** HTML được render từ server. QA cần chú ý lỗi **Hydration Mismatch** (HTML server trả về khác với client render).
+- **CSR (Client-Side Rendering - React):** HTML rỗng, JS render UI. QA cần chú ý các trạng thái **Loading/Skeleton** và các lỗi async timing.
+- **Cache Bugs:** Dữ liệu đã update trong DB nhưng UI vẫn hiển thị cũ do Browser/CDN Cache. (Test bằng Incognito / Hard Refresh Ctrl+Shift+R).
 
-- **HTML:** cấu trúc trang và semantic elements: form, button, input, label, table.
-- **CSS:** màu, spacing, layout, responsive; hữu ích khi báo lỗi visual/compatibility.
-- **JavaScript:** sự kiện click/input, validation client-side, DOM; hữu ích khi đọc Console.
-- **DOM:** cây element mà trình duyệt render; dùng DevTools Elements để inspect.
+---
 
-Đừng bắt đầu bằng framework phức tạp. Hãy inspect một form login, tìm `input`, `button`, `label`, rồi thử resize màn hình và dùng keyboard Tab.
+## 2. HTTP Methods & Status Codes
 
-## 2. HTTP cần biết
+### HTTP Methods
+- `GET`: Lấy dữ liệu (Safe, Idempotent).
+- `POST`: Tạo mới dữ liệu.
+- `PUT`: Cập nhật toàn bộ object.
+- `PATCH`: Cập nhật 1 phần object.
+- `DELETE`: Xóa dữ liệu.
 
-| Thành phần | Ý nghĩa |
-| --- | --- |
-| URL/endpoint | Địa chỉ tài nguyên/API |
-| Method | Ý định thao tác: GET, POST, PUT, PATCH, DELETE |
-| Headers | Metadata: Content-Type, Authorization, Accept… |
-| Params/body | Dữ liệu gửi đi |
-| Status code | Kết quả cấp HTTP |
-| Response body | Dữ liệu/error server trả về |
+### Status Codes chuẩn QA
+- `200 OK` / `201 Created` / `204 No Content` ➔ Success.
+- `400 Bad Request` ➔ Input invalid / Thiếu field.
+- `401 Unauthorized` ➔ Chưa đăng nhập / Token hết hạn.
+- `403 Forbidden` ➔ Đã đăng nhập nhưng không có quyền.
+- `404 Not Found` ➔ Resource không tồn tại.
+- `422 Unprocessable Entity` ➔ Validation fail.
+- `429 Too Many Requests` ➔ Quá tải rate limit.
+- `500 Internal Server Error` ➔ Server crash / Unhandled exception (**Luôn là Bug**).
 
-Status thường gặp: `200 OK`, `201 Created`, `400 Bad Request`, `401 Unauthenticated`, `403 Forbidden`, `404 Not Found`, `409 Conflict`, `500 Server Error`.
+---
 
-## 3. Bài thực hành Postman từng bước
+## 3. API Testing Checklist (Postman / cURL)
 
-1. Mở Postman, tạo Collection `QA Learning` và Environment `Demo`.
-2. Dùng API công khai, ví dụ `https://jsonplaceholder.typicode.com` (không dùng dữ liệu thật).
-3. Gửi `GET /posts/1`; kiểm tra status 200, thời gian response, headers và JSON body.
-4. Gửi `POST /posts` với header `Content-Type: application/json` và body mẫu. So sánh status/body với tài liệu API.
-5. Thử một request sai: endpoint không tồn tại hoặc body thiếu field (nếu API hỗ trợ) để quan sát error.
-6. Lưu request có tên rõ ràng, viết note: mục đích, input, expected status/body, actual.
-
-## 4. API test checklist
-
-- Happy path: valid input, expected status/schema/data.
-- Validation: field thiếu, sai type, boundary, duplicate.
-- Auth/authz: không token, token hết hạn, role sai (chỉ trên môi trường được phép).
-- Error contract: status/message có rõ và không lộ secret/stack trace không?
-- Side effect: POST/DELETE có thay đổi dữ liệu đúng một lần không?
-- Performance basic: response bất thường chậm? (không tự load test production).
-
-## Checklist
-
-- [ ] Giải thích GET/POST/PUT/PATCH/DELETE.
-- [ ] Đọc được request và response trong Network.
-- [ ] Gửi được GET và POST demo bằng Postman.
-- [ ] Phân biệt 401 với 403.
-- [ ] Không đưa production secret/token vào collection hoặc screenshot.
+- [ ] Verify Response Status Code khớp với scenario (Happy path & Error path).
+- [ ] Verify JSON Response Schema (đúng kiểu dữ liệu string, number, boolean, array).
+- [ ] Verify Authentication & Authorization (Thử bỏ Token ➔ Phải nhận 401).
+- [ ] Verify Validation error messages (Báo rõ ràng field nào bị lỗi).
+- [ ] Verify Response Time (< 200ms cho API thường).

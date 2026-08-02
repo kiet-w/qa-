@@ -1,34 +1,47 @@
-# 13 — Mobile, Performance, Security & Accessibility
+# 13 — Specialized Testing: Performance, Security & Accessibility
 
 ## Mục tiêu
+Nắm vững khái niệm và thực hành cơ bản với k6 (Load Testing), OWASP Top 10 (Security Testing), AXE (Accessibility Testing), và Mobile Testing.
 
-Khám phá các nhánh chuyên môn sau nền tảng, sau đó chọn một hoặc hai nhánh để học sâu thay vì học dàn trải.
+---
 
-## Backlog theo nhánh
+## 1. Performance / Load Testing với k6
 
-### Mobile testing
+```javascript
+import http from 'k6/http';
+import { check, sleep } from 'k6';
 
-- Android/iOS lifecycle, install/update/uninstall, permissions, offline/online, notification, orientation.
-- Device/OS matrix, real device vs emulator, screen sizes, battery/network conditions.
+export const options = {
+  vus: 50, // 50 Virtual Users
+  duration: '30s',
+  thresholds: { http_req_duration: ['p(95)<500'] }, // 95% request < 500ms
+};
 
-### Performance testing
+export default function () {
+  const res = http.get('http://localhost:3000/api/products');
+  check(res, { 'status is 200': (r) => r.status === 200 });
+  sleep(1);
+}
+```
 
-- Metric cơ bản: response time, throughput, error rate, concurrent users.
-- Load, stress, spike, soak; đọc kết quả và xác định bottleneck hypothesis.
-- Bắt đầu bằng k6 hoặc JMeter trên môi trường demo/staging có cho phép; không load test production tùy ý.
+---
 
-### Security testing cho QA
+## 2. Security Testing (OWASP Top 10 Basics)
 
-- OWASP Top 10 ở mức nhận biết: broken access control, injection, auth/session issues, security misconfiguration, data exposure.
-- Test permission theo role, validate input, error message, session expiry; báo evidence, không tự khai thác vượt scope.
+- **IDOR (Insecure Direct Object Reference):** Sửa ID trên URL `/api/orders/1` thành `/api/orders/2` ➔ Phải nhận 403 Forbidden nếu không phải owner.
+- **XSS (Cross-Site Scripting):** Nhập `<script>alert('xss')</script>` ➔ Verify input được escape an toàn.
 
-### Accessibility testing
+---
 
-- Keyboard-only navigation, focus order, semantic labels, alt text, contrast, zoom/reflow, screen reader basics.
-- Dùng Lighthouse/axe như công cụ gợi ý; vẫn manual verify user experience.
+## 3. Accessibility Testing (a11y) với AXE
 
-## Definition of done
+Thực thi kiểm tra chuẩn WCAG trực tiếp trong Playwright:
+```typescript
+import AxeBuilder from '@axe-core/playwright';
 
-- [ ] Chọn một nhánh ưu tiên phù hợp mục tiêu nghề nghiệp.
-- [ ] Có checklist thực hành an toàn trên app demo/staging được phép.
-- [ ] Nêu được giới hạn quyền hạn khi thực hiện performance/security test.
+test('a11y check', async ({ page }) => {
+  await page.goto('/');
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations).toEqual([]);
+});
+```

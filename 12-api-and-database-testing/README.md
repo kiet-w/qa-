@@ -1,30 +1,34 @@
-# 12 — API & Database Testing
-
-## Khi nào bắt đầu?
-
-Sau chặng 07: đã hiểu HTTP, gửi được GET/POST và đọc request/response trên DevTools.
+# 12 — API & Database Testing: Kiểm Thử API & Cơ Sở Dữ Liệu
 
 ## Mục tiêu
+Sử dụng Playwright Request API để test API tự động và viết các câu lệnh SQL để xác minh tính toàn vẹn dữ liệu (Data Integrity) trong Database.
 
-Kiểm tra được hệ thống qua API và dữ liệu, không chỉ nhìn giao diện UI.
+---
 
-## Backlog học theo thứ tự
+## 1. Playwright API Testing (`request`)
 
-1. **Postman nâng cao:** collections, environments, variables, pre-request scripts, tests, collection runner.
-2. **API contracts:** schema, required/optional fields, pagination, filtering, sorting, idempotency, error contract.
-3. **Authentication & authorization:** Bearer token, session, refresh token, role/permission — chỉ test trong môi trường được phép.
-4. **API workflows:** tạo dữ liệu bằng API, kiểm tra UI, cleanup dữ liệu test an toàn.
-5. **SQL cơ bản:** SELECT, WHERE, JOIN, GROUP BY, ORDER BY; chỉ đọc dữ liệu ở môi trường được cấp quyền.
-6. **Database validation:** đối chiếu request/UI/database, integrity, duplicate, transaction/rollback ở mức khái niệm.
-7. **Contract/API automation:** Newman, Playwright API hoặc tool phù hợp sau khi manual API vững.
+```typescript
+import { test, expect } from '@playwright/test';
 
-## Quy tắc an toàn
+test('GET /api/products returns correct list', async ({ request }) => {
+  const response = await request.get('/api/products');
+  expect(response.status()).toBe(200);
+  const data = await response.json();
+  expect(data.length).toBeGreaterThan(0);
+});
+```
 
-Không chạy query ghi/xóa trên production; không commit token, cookie, file environment có secret; không thử vượt quyền trên hệ thống không có cho phép rõ ràng.
+---
 
-## Definition of done
+## 2. SQL Queries cho QA
 
-- [ ] Có Postman Collection được đặt tên và mô tả rõ.
-- [ ] Có test positive/negative/auth/error cho một endpoint demo.
-- [ ] Viết được SQL SELECT/JOIN đơn giản trên database training.
-- [ ] Giải thích được cách đối chiếu UI → API → database.
+```sql
+-- 1. Check user vừa đăng ký trong DB
+SELECT id, email, is_active FROM users WHERE email = 'test@mail.com';
+
+-- 2. Check dữ liệu trùng lặp (Data Integrity Failure)
+SELECT email, COUNT(*) FROM users GROUP BY email HAVING COUNT(*) > 1;
+
+-- 3. Check orphan records (Cascade Delete Fail)
+SELECT o.id FROM orders o LEFT JOIN users u ON o.user_id = u.id WHERE u.id IS NULL;
+```

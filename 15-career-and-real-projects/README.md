@@ -1,33 +1,26 @@
-# 15 — Career & Real Projects
+# 15 — Career & Real Projects: Hồ Sơ & Chuẩn Bị Phỏng Vấn
 
 ## Mục tiêu
+Xây dựng Portfolio ấn tượng chứng minh cả tư duy QA lẫn năng lực AI, chuẩn bị sẵn sàng cho các câu hỏi phỏng vấn vị trí QA Trainee / Junior QA.
 
-Chuyển kiến thức thành portfolio, kỹ năng giao tiếp và thói quen làm việc trong team thật.
+---
 
-## Backlog học theo thứ tự
+## 📝 20+ Câu Hỏi Phỏng Vấn Mẫu & Định Hướng Trả Lời
 
-1. **Portfolio cleanup:** README rõ mục tiêu, stack, cách chạy, test artifacts, screenshots đã che dữ liệu.
-2. **Case study:** một feature từ requirement → risk → test cases → execution → defects → release summary.
-3. **Interview practice:** QA mindset, test design, bug severity/priority, Agile, API basics, AI usage có review.
-4. **Communication:** hỏi requirement rõ ràng, báo blocker sớm, mô tả impact không đổ lỗi, trình bày evidence.
-5. **Real-team practice:** issue tracker, pull request review, sprint rhythm, handoff với dev/BA/design.
-6. **Learning log:** mỗi tháng ghi điều đã học, lỗi từng bỏ sót, kỹ thuật/test tool muốn cải thiện.
+1. **Phân biệt QA vs QC vs Testing?**
+   - *Trả lời:* QA lo quy trình phòng ngừa lỗi, QC kiểm tra chất lượng sản phẩm, Testing là hoạt động thực thi tìm lỗi cụ thể.
 
-## Template khi thêm một chủ đề mới
+2. **Cho ví dụ bug High Severity nhưng Low Priority?**
+   - *Trả lời:* App crash khi nhập emoji vào trường ghi chú nội bộ rất ít khi dùng (Crash nặng nhưng ít user gặp).
 
-Mỗi folder/chủ đề mới nên có:
+3. **Phân biệt Smoke Testing vs Sanity Testing?**
+   - *Trả lời:* Smoke test kiểm tra nhanh toàn bộ tính năng cơ bản sau build mới (Rộng, nông). Sanity test kiểm tra sâu tính năng vừa được sửa lỗi (Hẹp, sâu).
 
-```text
-topic-name/
-├── README.md       # Mục tiêu, prerequisite, thứ tự học
-├── notes/          # Khái niệm, ví dụ của bạn
-├── exercises/      # Đề bài và đáp án tự review
-├── artifacts/      # Test cases, reports, scripts
-└── evidence/       # Ảnh/video/log đã bỏ dữ liệu nhạy cảm
-```
+4. **Equivalence Partitioning & Boundary Value Analysis là gì?**
+   - *Trả lời:* EP chia input thành các nhóm xử lý giống nhau. BVA tập trung test ở các biên của ranh giới các nhóm đó.
 
-## Definition of done
+5. **Giải thích Bug Life Cycle? khi nào Reopen vs Reject?**
+   - *Trả lời:* Reopen khi dev báo đã sửa nhưng QA test lại vẫn lỗi. Reject khi dev/PO xác nhận đó không phải bug (Behavior by design).
 
-- [ ] Có ít nhất hai case study dễ đọc trên GitHub.
-- [ ] Giải thích được quyết định test theo risk và bằng chứng.
-- [ ] Có learning log và mục tiêu 30 ngày tiếp theo.
+6. **Bạn ứng dụng AI vào công việc QA như thế nào?**
+   - *Trả lời:* Dùng AI hỗ trợ sinh test case draft từ requirement (Prompt RCFCO), sinh Playwright test code, tóm tắt CI/CD log, và tự sửa test lỗi selector (Playwright MCP self-healing). Luôn review output của AI vì AI không có domain context ngầm.

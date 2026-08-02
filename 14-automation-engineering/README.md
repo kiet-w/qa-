@@ -1,24 +1,41 @@
-# 14 — Automation Engineering
+# 14 — Automation Engineering: Xây Dựng Framework Nâng Cao
 
-## Khi nào bắt đầu?
+## Mục tiêu
+Làm chủ mô hình Page Object Model (POM), Quản lý Fixtures, Xử lý Flaky Tests, và Tích hợp CI/CD với GitHub Actions & Allure Report.
 
-Sau khi xong chặng 08 và có vài UI/API tests ổn định chạy local. Đây là giai đoạn xây hệ thống test, không chỉ viết một script.
+---
 
-## Backlog học theo thứ tự
+## 1. Page Object Model (POM) Pattern
 
-1. **Project structure:** config, fixtures, test data, page/component objects hoặc screenplays phù hợp.
-2. **Reliable locators:** accessibility role, label, test id; locator convention với developer.
-3. **Test isolation:** independent data, setup/teardown, tránh shared state và test-order dependency.
-4. **Assertions & waits:** explicit meaningful assertions, wait for state not arbitrary sleep.
-5. **Debugging:** traces, screenshots, videos, logs, retry policy; phân tích flaky tests.
-6. **Parallel execution:** shard/worker, test data collision, runtime trade-off.
-7. **CI/CD:** chạy smoke trên pull request, regression theo lịch; secrets quản lý qua CI secret store.
-8. **Reporting & quality signals:** report, trend, failure ownership, flaky rate, suite runtime.
-9. **Code review:** readability, deterministic test, duplication, maintainability.
+```typescript
+// pages/login.page.ts
+export class LoginPage {
+  constructor(private page: Page) {}
+  readonly emailInput = this.page.getByLabel('Email');
+  readonly loginBtn = this.page.getByRole('button', { name: 'Login' });
 
-## Definition of done
+  async login(email: string, pass: string) {
+    await this.emailInput.fill(email);
+    await this.page.getByLabel('Password').fill(pass);
+    await this.loginBtn.click();
+  }
+}
+```
 
-- [ ] Có test project chạy lặp lại ổn định.
-- [ ] Có README hướng dẫn chạy local và CI.
-- [ ] Có report/traces khi fail.
-- [ ] Không commit secrets hoặc hard-code production data.
+---
+
+## 2. CI/CD GitHub Actions Workflow
+
+```yaml
+name: Playwright Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test
+```
